@@ -98,7 +98,7 @@ class catalogp_model extends add_model_module {
     }
 
     function update_br($id, $post) {
-        $res = $this->db->query("START TRANSACTION;");
+        $res = $this->db->query("START TRANSACTION;"); 
         //$this->db->query("UPDATE ns_doc SET  date= NOW() WHERE ns_doc.id='".$id."'");
         $res+=$this->db->query("UPDATE id_lang_text SET text='" . mysql_real_escape_string(trim(strip_tags($post['name_alias']))) . "', date=NOW() WHERE id='" . $post['idl'] . "' AND lang='" . $post['lang'] . "'");
         $res+=$this->db->query("UPDATE id_lang_text SET text='" . mysql_real_escape_string(trim(strip_tags($post['descr_br']))) . "', date=NOW() WHERE id='" . $post['idl_descr'] . "' AND lang='" . $post['lang'] . "'");

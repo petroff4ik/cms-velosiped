@@ -17,7 +17,7 @@ class db extends error {
 	private $total_time = 0;
 
 	function __construct($hostname="", $user="", $password="", $db="") {
-		$this->link_id = mysql_connect($hostname, $user, $password);
+		$this->link_id = mysql_pconnect($hostname, $user, $password);
 		if (!$this->link_id && $db != "") {
 			$this->show_error("db", "Error connect Mysql or wrong table name.");
 		} else {
@@ -34,14 +34,9 @@ class db extends error {
 
 	function query($string="", $arg=false) {//echo $string."<br /><br />";
 		try {
-			$tmp = explode(";", $string);
 			$time_start = list($sm, $ss) = explode(' ', microtime());
-			foreach ($tmp as $key => $value) {
-				if (!empty($value)) {
-					$string = $this->compile_binds($value, $arg);
-					$this->query_id = mysql_query($string . ";", $this->link_id);
-				}
-			};
+			$string = $this->compile_binds($string, $arg);
+			$this->query_id = mysql_query($string, $this->link_id);
 			$time_end = list($em, $es) = explode(' ', microtime());
 			$this->total_time += ( $em + $es) - ($sm + $ss);
 			if (mysql_error())

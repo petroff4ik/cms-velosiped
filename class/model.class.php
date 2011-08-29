@@ -52,7 +52,9 @@ class model {
     }
 
     function del_cat($id) {
-        $this->db->query("BEGIN;SELECT @treeLeft := lft, @treeRight := rgt, @treeWidth := rgt - lft + 1 FROM ns_tree WHERE id = '$id';DELETE FROM ns_tree WHERE lft BETWEEN @treeLeft AND @treeRight;UPDATE ns_tree SET rgt = rgt - @treeWidth WHERE rgt > @treeRight;UPDATE ns_tree SET lft = lft - @treeWidth WHERE lft > @treeRight;COMMIT;", true);
+        $this->db->query("BEGIN;");
+		$this->db->query("SELECT @treeLeft := lft, @treeRight := rgt, @treeWidth := rgt - lft + 1 FROM ns_tree WHERE id = '$id';DELETE FROM ns_tree WHERE lft BETWEEN @treeLeft AND @treeRight;UPDATE ns_tree SET rgt = rgt - @treeWidth WHERE rgt > @treeRight;UPDATE ns_tree SET lft = lft - @treeWidth WHERE lft > @treeRight;");
+		$this->db->query("COMMIT;");
     }
 
     function registry($class, $name, $schedule, $standby, $side_schedule, $side_standby, $templates, $name_module, $help_an) {
@@ -263,12 +265,12 @@ class model {
             $arg = "+1";
         else
             $arg="-1";
-        $this->db->query("BEGIN;
-       SELECT @nl1 := number_launch,@nl3 := number_launch   FROM modules  WHERE id='$id';
-       SELECT @nl2 := number_launch,@id2 :=id   FROM modules  WHERE number_launch=@nl1 $arg ;
-       UPDATE modules SET number_launch=@nl2  WHERE id='$id';
-       UPDATE modules SET number_launch=@nl3  WHERE id=@id2;
-       COMMIT;", true);
+       $this->db->query("BEGIN;");
+       $this->db->query("SELECT @nl1 := number_launch,@nl3 := number_launch   FROM modules  WHERE id='$id';");
+       $this->db->query("SELECT @nl2 := number_launch,@id2 :=id   FROM modules  WHERE number_launch=@nl1 {$arg} ;");
+       $this->db->query("UPDATE modules SET number_launch=@nl2  WHERE id='$id';");
+       $this->db->query("UPDATE modules SET number_launch=@nl3  WHERE id=@id2;");
+       $this->db->query("COMMIT;");
     }
 
     function return_max_level() {
