@@ -7,7 +7,7 @@
             </td>
             <td width="200" align="left" valign="top">
                 <?foreach($el as $key=>$value):?>
-                r<a style="margin-bottom: 40px;" href="/<?=$GLOBALS['lang'];?>/catalogp/element/<?=$value['father_id'];?>/<?=$value['id_doc'];?>"><?=$value['text'];?></a><br/>
+                <a style="margin-bottom: 40px;" href="/<?=$GLOBALS['lang'];?>/catalogp/element/<?=$value['father_id'];?>/<?=$value['id_doc'];?>"><?=$value['text'];?></a><br/>
                 <?endforeach;?>
             </td>
         </tr>
