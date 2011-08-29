@@ -126,7 +126,10 @@
  <td><?=$name_el;?>&nbsp;</td><td><input name="arr[<?=$doc[0]['idl'];?>]" type="text" size="60" value="<?=$doc[0]['text'];?>"></td>
  </tr>
    <tr>
-	   <td><?=$desc_el;?>&nbsp; </td><td><textarea class="mceEditor" name="arr[<?=$doc[1]['idl'];?>]" cols="40" rows="4"><?=$doc[1]['text'];?></textarea></td>
+	   <td><?=$desc_el;?>&nbsp; </td><td><textarea class="mceEditor" name="arr[<?=$doc[1]['idl'];?>]" cols="40" rows="4"><?=$doc[1]['text'];?></textarea>
+           <br/>
+						<a href="javascript:toggleEditor('arr[<?=$doc[1]['idl'];?>]')"><?= $d_sh; ?></a>
+           </td>
   </tr>
    <tr>
  <td><?=$price_el;?>&nbsp;<td><input name="arr[<?=$doc[2]['idl'];?>]" type="text" size="2" value="<?=$doc[2]['text'];?>"></td>
