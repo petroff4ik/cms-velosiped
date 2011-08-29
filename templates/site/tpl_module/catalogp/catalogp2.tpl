@@ -1,7 +1,19 @@
 
 <div align="center">
-	<? foreach ($branch as $key => $value): ?>
-		<a class="cmenu" idn="<?= $key; ?>" style="float:left;margin:10px;cursor:pointer;" href="/<?=$GLOBALS['lang'];?>/catalogp/branch/<?=$value['father_id'];?>/<?=$value['id_doc'];?>"><b><?= $value['text']; ?></b></a>
-	<? endforeach; ?>
-                <br clear="all"/>
+    <table border ="0">
+        <? for($i=0;$i<=count($branch);$i++): ?>
+        <tr>
+            <td>
+            <a class="cmenu"  style="float:left;margin:10px;cursor:pointer;" href="/<?= $GLOBALS['lang']; ?>/catalogp/branch/<?= $branch[$i]['father_id']; ?>/<?= $branch[$i]['id_doc']; ?>"><b><?= $branch[$i]['text']; ?></b></a>
+            </td>
+            <? $i++;?>
+            <? if(isset($branch[$i])):?>
+             <td>
+            <a class="cmenu"  style="float:left;margin:10px;cursor:pointer;" href="/<?= $GLOBALS['lang']; ?>/catalogp/branch/<?= $branch[$i]['father_id']; ?>/<?= $branch[$i]['id_doc']; ?>"><b><?= $branch[$i]['text']; ?></b></a>
+            </td>
+            <?endif;?>
+        </tr>
+            <? endfor; ?>
+
+    </table>
 </div>
