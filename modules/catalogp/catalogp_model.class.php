@@ -16,13 +16,13 @@ class catalogp_model extends add_model_module {
 
         $lastid = $this->returnLastId("+");
         foreach ($post['branch_name'] as $key => $value) {
-            $res = $this->db->query("INSERT INTO id_lang_text SET text='" . mysql_real_escape_string(trim(strip_tags($value))) . "', id='" . $lastid . "' , lang='" . $key . "',date=NOW();");
+            $res = $this->db->query("INSERT INTO id_lang_text SET text='" . mysql_real_escape_string(trim($value)) . "', id='" . $lastid . "' , lang='" . $key . "',date=NOW();");
         }
         $lastid = $this->returnLastId();
 
         $lastid_d = $this->returnLastId("+");
         foreach ($post['descr_br'] as $key => $value) {
-            $res = $this->db->query("INSERT INTO id_lang_text SET text='" . mysql_real_escape_string(trim(strip_tags($value))) . "', id='" . $lastid_d . "' , lang='" . $key . "',date=NOW();");
+            $res = $this->db->query("INSERT INTO id_lang_text SET text='" . mysql_real_escape_string(trim($value)) . "', id='" . $lastid_d . "' , lang='" . $key . "',date=NOW();");
         }
 
         $res = $this->db->query("INSERT INTO catalogp SET type='br',name_alias='" . $lastid . "',id_doc='" . $ns_doc . "',pos='" . $post['pos'] . "', path='" . $post['path'] . "',file_name='" . $post['file_name'] . "',pid='" . $post['branch'] . "',descr_alias = '" . $lastid_d . "';");
@@ -37,7 +37,7 @@ class catalogp_model extends add_model_module {
 
         $lastid = $this->returnLastId("+");
         foreach ($post['name'] as $key => $value) {
-            $this->db->query("INSERT INTO id_lang_text SET text='" . mysql_real_escape_string(trim(strip_tags($value))) . "', id='" . $lastid . "' , lang='" . $key . "',date=NOW();");
+            $this->db->query("INSERT INTO id_lang_text SET text='" . mysql_real_escape_string(trim($value)) . "', id='" . $lastid . "' , lang='" . $key . "',date=NOW();");
         }
         $lastid = $this->returnLastId();
         $this->db->query("INSERT INTO catalogp SET name_alias='" . $lastid . "',path='" . $post['path'] . "',file_name='" . $post['file_name'] . "';");
@@ -45,14 +45,14 @@ class catalogp_model extends add_model_module {
         $res = 0;
         $lastid++;
         foreach ($post['descr'] as $key => $value) {
-            $res+=$this->db->query("INSERT INTO id_lang_text SET text='" . mysql_real_escape_string(trim(strip_tags($value))) . "', id='" . $lastid . "' , lang='" . $key . "',date=NOW();");
+            $res+=$this->db->query("INSERT INTO id_lang_text SET text='" . mysql_real_escape_string(trim($value)) . "', id='" . $lastid . "' , lang='" . $key . "',date=NOW();");
         }
 
         $this->db->query("UPDATE  catalogp SET descr_alias='" . $lastid . "' WHERE idcp='" . $id_cat . "';");
 
         $lastid++;
         foreach ($post['price'] as $key => $value) {
-            $res+=$this->db->query("INSERT INTO id_lang_text SET text='" . mysql_real_escape_string(trim(strip_tags($value))) . "', id='" . $lastid . "' , lang='" . $key . "',date=NOW();");
+            $res+=$this->db->query("INSERT INTO id_lang_text SET text='" . mysql_real_escape_string(trim($value)) . "', id='" . $lastid . "' , lang='" . $key . "',date=NOW();");
         }
         $res+=$this->db->query("UPDATE  catalogp SET type='el',pid='" . $post['branch'] . "', id_doc='" . $ns_doc . "', price_alias='" . $lastid . "' WHERE idcp='" . $id_cat . "';");
         $this->db->query("COMMIT;");
@@ -90,7 +90,7 @@ class catalogp_model extends add_model_module {
         $res = $this->db->query("START TRANSACTION;");
         //$this->db->query("UPDATE ns_doc SET  date= NOW() WHERE ns_doc.id='".$id."'");
         foreach ($post['arr'] as $key => $value) {
-            $res+=$this->db->query("UPDATE id_lang_text SET text='" . mysql_real_escape_string(trim(strip_tags($value))) . "', date=NOW() WHERE id='" . $key . "' AND lang='" . $post['lang'] . "'");
+            $res+=$this->db->query("UPDATE id_lang_text SET text='" . mysql_real_escape_string(trim($value)) . "', date=NOW() WHERE id='" . $key . "' AND lang='" . $post['lang'] . "'");
         }
         $res+=$this->db->query("UPDATE catalogp SET  pid='" . $post['branch'] . "', path='" . $post['path'] . "',file_name='" . $post['file_name'] . "' WHERE catalogp.idcp='" . $post['idcp'] . "'");
         $this->db->query("COMMIT;");
@@ -100,8 +100,8 @@ class catalogp_model extends add_model_module {
     function update_br($id, $post) {
         $res = $this->db->query("START TRANSACTION;"); 
         //$this->db->query("UPDATE ns_doc SET  date= NOW() WHERE ns_doc.id='".$id."'");
-        $res+=$this->db->query("UPDATE id_lang_text SET text='" . mysql_real_escape_string(trim(strip_tags($post['name_alias']))) . "', date=NOW() WHERE id='" . $post['idl'] . "' AND lang='" . $post['lang'] . "'");
-        $res+=$this->db->query("UPDATE id_lang_text SET text='" . mysql_real_escape_string(trim(strip_tags($post['descr_br']))) . "', date=NOW() WHERE id='" . $post['idl_descr'] . "' AND lang='" . $post['lang'] . "'");
+        $res+=$this->db->query("UPDATE id_lang_text SET text='" . mysql_real_escape_string(trim($post['name_alias'])) . "', date=NOW() WHERE id='" . $post['idl'] . "' AND lang='" . $post['lang'] . "'");
+        $res+=$this->db->query("UPDATE id_lang_text SET text='" . mysql_real_escape_string(trim($post['descr_br'])) . "', date=NOW() WHERE id='" . $post['idl_descr'] . "' AND lang='" . $post['lang'] . "'");
         $res+=$this->db->query("UPDATE catalogp SET pos='" . $post['pos'] . "', path='" . $post['path'] . "',file_name='" . $post['file_name'] . "',pid='" . $post['branch'] . "' WHERE catalogp.idcp='" . $post['idcp'] . "'");
         $this->db->query("COMMIT;");
         return $res;
