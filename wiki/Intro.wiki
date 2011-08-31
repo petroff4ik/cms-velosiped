@@ -1,0 +1,11 @@
+#summary One-sentence summary of this page.
+#labels fun,cms,litle
+
+= Introduction =
+
+This is a home-made CMS, purely for fun
+
+
+= Details =
+=Heading1=
+*For fun*
