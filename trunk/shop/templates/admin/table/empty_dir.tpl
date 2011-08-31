@@ -1,1 +1,0 @@
-<div style='border:1px solid;width:200px;'><?=$t_not_find;?></div>
