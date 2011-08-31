@@ -6,6 +6,5 @@
 This is a home-made CMS, purely for fun
 
 
-= Details =
 =Description=
 *For fun*
