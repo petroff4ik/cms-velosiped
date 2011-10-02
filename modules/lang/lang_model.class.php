@@ -5,7 +5,8 @@
  }
 
  function save_def_lang($id){
-  return $this->db->query("UPDATE lang SET default_lang='' WHERE id !='$id';UPDATE lang SET default_lang='true' WHERE id='$id';",true);
+   $this->db->query("UPDATE lang SET default_lang='' WHERE id !='$id';");
+   return $this->db->query("UPDATE lang SET default_lang='true' WHERE id='$id';",true);
  }
 
  function save_lang_info($id,$c_id,$name,$alias){
