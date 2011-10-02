@@ -53,8 +53,10 @@ class model {
 
     function del_cat($id) {
         $this->db->query("BEGIN;");
-		$this->db->query("SELECT @treeLeft := lft, @treeRight := rgt, @treeWidth := rgt - lft + 1 FROM ns_tree WHERE id = '$id';DELETE FROM ns_tree WHERE lft BETWEEN @treeLeft AND @treeRight;UPDATE ns_tree SET rgt = rgt - @treeWidth WHERE rgt > @treeRight;UPDATE ns_tree SET lft = lft - @treeWidth WHERE lft > @treeRight;");
-		$this->db->query("COMMIT;");
+        $this->db->query("SELECT @treeLeft := lft, @treeRight := rgt, @treeWidth := rgt - lft + 1 FROM ns_tree WHERE id = '$id';");
+        $this->db->query("DELETE FROM ns_tree WHERE lft BETWEEN @treeLeft AND @treeRight;");
+        $this->db->query("UPDATE ns_tree SET rgt = rgt - @treeWidth WHERE rgt > @treeRight;UPDATE ns_tree SET lft = lft - @treeWidth WHERE lft > @treeRight;");
+        $this->db->query("COMMIT;");
     }
 
     function registry($class, $name, $schedule, $standby, $side_schedule, $side_standby, $templates, $name_module, $help_an) {
@@ -182,11 +184,13 @@ class model {
     }
 
     function save_login($login, $level, $id="insert") {
+        $res = $this->db->query("START TRANSACTION;");
         if ($id == "insert") {
             $this->db->query("INSERT INTO type_users VALUES(0,'$login','$level');");
         } else {
             $this->db->query("UPDATE type_users SET type='$login',level='$level' WHERE id='$id' ;");
         }
+        return $this->db->query("COMMIT;");
     }
 
     function del_login($id) {
@@ -206,8 +210,10 @@ class model {
     }
 
     function save_tmp_inf($id, $id_n, $path_file, $name, $show_me) {
-        $this->db->query("UPDATE templates SET show_me='0';
-     UPDATE templates SET id='$id_n', name='$name',path_file='$path_file', show_me='$show_me'   WHERE id='$id';", true);
+        $this->db->query("START TRANSACTION;");
+        $this->db->query("UPDATE templates SET show_me='0';");
+        $this->db->query("UPDATE templates SET id='$id_n', name='$name',path_file='$path_file', show_me='$show_me'   WHERE id='$id';", true);
+        return $this->db->query("COMMIT;");
     }
 
     function tem_del_side($side, $id) {
@@ -243,6 +249,7 @@ class model {
     }
 
     function save_mod_optoins($id, $class, $name, $ins, $help, $sch, $stn, $tem, $even, $nl, $la, $arr) {
+        $this->db->query("START TRANSACTION;");
         $this->db->query("UPDATE modules SET id='$id', class='$class', name='$name',help_annotation='$help', schedule='$sch',  templates='$tem', name_module='$ins', events='$even', number_launch='$nl', level_access='$la' WHERE id='$id'");
         $this->db->query("DELETE FROM side_module WHERE id='" . $class . "_" . "sc" . "' OR id='" . $class . "_" . "st" . "' OR id='" . $class . "_" . "ev" . "';");
 
@@ -257,6 +264,7 @@ class model {
                 foreach ($values as $key => $value)
                     $this->db->query("INSERT INTO side_module VALUE('" . $class . "_ev" . "','" . $value . "','" . $key . "');");
             }
+        return $this->db->query("COMMIT;");
     }
 
     function module_nl($id, $arg) {
@@ -265,12 +273,12 @@ class model {
             $arg = "+1";
         else
             $arg="-1";
-       $this->db->query("BEGIN;");
-       $this->db->query("SELECT @nl1 := number_launch,@nl3 := number_launch   FROM modules  WHERE id='$id';");
-       $this->db->query("SELECT @nl2 := number_launch,@id2 :=id   FROM modules  WHERE number_launch=@nl1 {$arg} ;");
-       $this->db->query("UPDATE modules SET number_launch=@nl2  WHERE id='$id';");
-       $this->db->query("UPDATE modules SET number_launch=@nl3  WHERE id=@id2;");
-       $this->db->query("COMMIT;");
+        $this->db->query("BEGIN;");
+        $this->db->query("SELECT @nl1 := number_launch,@nl3 := number_launch   FROM modules  WHERE id='$id';");
+        $this->db->query("SELECT @nl2 := number_launch,@id2 :=id   FROM modules  WHERE number_launch=@nl1 {$arg} ;");
+        $this->db->query("UPDATE modules SET number_launch=@nl2  WHERE id='$id';");
+        $this->db->query("UPDATE modules SET number_launch=@nl3  WHERE id=@id2;");
+        $this->db->query("COMMIT;");
     }
 
     function return_max_level() {
@@ -454,15 +462,14 @@ class model {
     }
 
     /* Clear db
-	  DELETE id_lang_text FROM   id_lang_text left join sys_info on sys_info.id_lang=id_lang_text.id WHERE sys_info.id_lang is null;
-	  TRUNCATE TABLE catalogp;
-	  TRUNCATE TABLE ns_doc;
-	  TRUNCATE TABLE ns_tree;
-	  TRUNCATE TABLE tags_side;
-	  TRUNCATE TABLE tags_voc;
-	 * TRUNCATE TABLE `doc_view`;
-	 */
-	
+      DELETE id_lang_text FROM   id_lang_text left join sys_info on sys_info.id_lang=id_lang_text.id WHERE sys_info.id_lang is null;
+      TRUNCATE TABLE catalogp;
+      TRUNCATE TABLE ns_doc;
+      TRUNCATE TABLE ns_tree;
+      TRUNCATE TABLE tags_side;
+      TRUNCATE TABLE tags_voc;
+     * TRUNCATE TABLE `doc_view`;
+     */
 }
 
 ?>

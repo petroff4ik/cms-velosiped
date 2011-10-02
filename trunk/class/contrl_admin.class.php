@@ -92,8 +92,8 @@ class contrl_admin extends add_contrl {
         $module = $this->_call_out_func("tree", "_add", $url[1], $_POST['add_in'], $_POST['show'], $_POST['adress'], $_POST['side'], $_POST);
         $this->cache->clean("tree", "callback_killByGroup");
         if ($_POST['mod'] != "undefined") {
-			$this->set_message("ok");
-            header("location: /" . ADMIN_DIR . "/id/".$module['lastid']);
+            $this->set_message("ok");
+            header("location: /" . ADMIN_DIR . "/id/" . $module['lastid']);
         } else {
             header("location: /" . ADMIN_DIR . "/message/ok");
         }
@@ -429,8 +429,8 @@ class contrl_admin extends add_contrl {
         $data['body'] = $this->_call_out_func_arr($url[1], $url[2], $url, 3);
         return $data;
     }
-	
-	 protected function unsafe_launch($url) {
+
+    protected function unsafe_launch($url) {
         $this->cache->removeP($this->_call_out_func("tree", "current_address2", $this->_call_out_func("tree_model", "get_info", "father_id", "ns_doc", "id", $url[3])));
         $data['body'] = $this->_call_out_func_arr($url[1], $url[2], $url, 3);
         return $data;
@@ -442,7 +442,6 @@ class contrl_admin extends add_contrl {
         $data['lang'] = $this->_call_out_func("lang_model", "return_count_lang");
         $this->view->view("templates/admin/branch/endindex.tpl", $data);
         exit;
-   
     }
 
     protected function returnpath($url) {
@@ -453,13 +452,11 @@ class contrl_admin extends add_contrl {
         else
             echo $res;
         exit;
-       
     }
 
     protected function galery($url) {
         require_once(SITE_DIR . "editor/tiny_mce/plugins/advimage/galery.php");
         exit;
-     
     }
 
     protected function add_doc($url) {
@@ -479,7 +476,6 @@ class contrl_admin extends add_contrl {
                 echo $value['side'] . "\n";
         }
         exit;
-       
     }
 
     protected function uncoupling($url) {
@@ -507,7 +503,6 @@ class contrl_admin extends add_contrl {
             }
         }
         exit();
-       
     }
 
     protected function options($url) {
@@ -744,7 +739,7 @@ class contrl_admin extends add_contrl {
         $this->url = $url;
         $this->routes = $routes;
         $this->cache = $cache;
-		$this->_call_out_func("user_auth", "_check_SID");
+        if (isset($_POST["PHPSESSID"]))session_id($_POST["PHPSESSID"]);	
         $this->sessionStart();
         $this->actionlog = "<b>" . date("Y-m-d h:m") . "</b> -> " . $this->getIP() . " " . @$_SESSION['type'] . " " . @$_SESSION['user']['adress'] . " " . SITE_URL . $_SERVER['REQUEST_URI'];
         if (ACTIONLOG)
@@ -776,7 +771,7 @@ class contrl_admin extends add_contrl {
             $dataInfo['sys_info'] = $this->show_sys_info($this->url[1]);
             $dataInfo['login_info'] = $this->_call_out_func("user_auth", "_show_hello_admin");
             if ($this->level_access($this->url [0])) {
-                if (empty($this->url[0]) || $this->url[0]=="message")
+                if (empty($this->url[0]) || $this->url[0] == "message")
                     $this->url[0] = "deflt";
                 $data = call_user_func(array($this, $this->url[0]), $this->url);
             } else {
