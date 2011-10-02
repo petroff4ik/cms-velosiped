@@ -55,7 +55,8 @@ class model {
         $this->db->query("BEGIN;");
         $this->db->query("SELECT @treeLeft := lft, @treeRight := rgt, @treeWidth := rgt - lft + 1 FROM ns_tree WHERE id = '$id';");
         $this->db->query("DELETE FROM ns_tree WHERE lft BETWEEN @treeLeft AND @treeRight;");
-        $this->db->query("UPDATE ns_tree SET rgt = rgt - @treeWidth WHERE rgt > @treeRight;UPDATE ns_tree SET lft = lft - @treeWidth WHERE lft > @treeRight;");
+        $this->db->query("UPDATE ns_tree SET rgt = rgt - @treeWidth WHERE rgt > @treeRight;");
+        $this->db->query("UPDATE ns_tree SET lft = lft - @treeWidth WHERE lft > @treeRight;");
         $this->db->query("COMMIT;");
     }
 
@@ -468,7 +469,7 @@ class model {
       TRUNCATE TABLE ns_tree;
       TRUNCATE TABLE tags_side;
       TRUNCATE TABLE tags_voc;
-     * TRUNCATE TABLE `doc_view`;
+      TRUNCATE TABLE `doc_view`;
      */
 }
 
