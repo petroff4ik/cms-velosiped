@@ -32,7 +32,7 @@ define('HOST', 'localhost');
 define('PASS', '');
 define('NAME_BASA', 'test');
 define('USER', 'root');
-define('ROOT_TREE_TITLE_SHOW',true);
+define('ROOT_TREE_TITLE_SHOW',false);
 //cache
 $options = array(
     'caching' => false,

@@ -61,8 +61,17 @@
 							<select size="1" name="template_out" onchange="chechk(this);">
 
 								<? foreach ($alltemplates as $key => $value): ?>
+                                                            <?if(isset($showside[0]['id_template']) && $value['id'] == $showside[0]['id_template']):?>
 									<option value="<?= $value['id']; ?>"><?= $value['name']; ?></option>
+                                                            <?endif;?>            
 								<? endforeach; ?>
+                                                                        
+                                                                <? foreach ($alltemplates as $key => $value): ?>
+                                                                         <?if(isset($showside[0]['id_template']) && $value['id'] != $showside[0]['id_template']):?>
+									<option value="<?= $value['id']; ?>"><?= $value['name']; ?></option>
+                                                                        <?endif;?>
+								<? endforeach; ?>
+                                                                        
 							</select>
 						</td>
 						<td>
