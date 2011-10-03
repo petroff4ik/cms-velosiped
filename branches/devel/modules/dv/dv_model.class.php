@@ -14,7 +14,6 @@ class dv_model extends add_model_module {
         else
             $arg = " ns_doc.id='" . $id . "'";
         $tmp = $this->db->result_array($this->db->query("SELECT ns_doc.id as idg,ns_doc.side_for_doc,id_lang_text.text,title.text as title,doc_view.small_version,title.show_me_title,id_lang_text.id From id_lang_text,doc_view,ns_doc inner join (SELECT doc_view.show_me_title,id_lang_text.text,doc_view.id From id_lang_text,doc_view WHERE doc_view.text_title=id_lang_text.id AND id_lang_text.lang='" . $GLOBALS['lang'] . "') as title ON title.id=ns_doc.id  WHERE " . $arg . " and ns_doc.id=doc_view.id and doc_view.text=id_lang_text.id and ns_doc.show_me=1 and id_lang_text.lang='" . $GLOBALS['lang'] . "' ORDER BY ns_doc.date DESC;"));
-
         return $tmp;
     }
 
