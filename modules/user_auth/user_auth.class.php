@@ -5,7 +5,7 @@ class user_auth extends add_module {
 	private $class = "user_auth";
 	private $func = "login";
 
-	// securitu and session func----------------
+	// securitu and session func----------------- devel version2
 	protected function _use_session($arg="", $arr="") {
 		$this->sessionStart();
 		switch ($arg) {
