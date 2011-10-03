@@ -738,6 +738,7 @@ class contrl_admin extends add_contrl {
      * @return content
      */
     function __construct($db, $view, $model, $routes, $cache, $url) {
+		//test devel
         $this->view = $view;
         $this->model = $model;
         $this->db = $db;
