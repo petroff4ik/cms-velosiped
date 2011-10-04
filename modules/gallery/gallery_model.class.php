@@ -15,6 +15,7 @@ class gallery_model extends add_model_module {
 		foreach ($post['description'] as $key => $value) {
 			$this->db->query("INSERT INTO id_lang_text SET text='" . mysql_real_escape_string(trim(strip_tags($value))) . "', id='" . $lastid . "' , lang='" . $key . "',date=NOW();");
 		}
+		$sd = isset($post['show_description']) ? 1 : "";
 		$res = $this->db->query("INSERT INTO gallery SET description='" . $lastid . "',path='" . $post['path'] . "',file_name='" . $post['file_name'] . "', id_doc = '" . $ns_doc . "',show_description='" . $this->security($sd, "+") . "';");
 		$this->db->query("COMMIT;");
 		return $res;
@@ -52,6 +53,14 @@ class gallery_model extends add_model_module {
 	function check_gallery_all($ns_tree){
 		return $this->db->row_array($this->db->query("SELECT * FROM ns_doc,gallery,id_lang_text WHERE father_id = " . $this->security($ns_tree) . " AND types = 'all' AND gallery.id_doc = ns_doc.id AND id_lang_text.id = gallery.description AND id_lang_text.lang = '".$GLOBALS['lang']."';"));
 	}
+	
+	function getPagesAbs($ns_doc) {
+        return $this->db->result_array($this->db->query("SELECT * FROM lang LEFT JOIN id_lang_text ON id_lang_text.lang=lang.name AND id_lang_text.id=(SELECT gallery.description FROM gallery WHERE gallery.id_doc='" . $this->security($ns_doc) . "') WHERE id_lang_text.text is null;"));
+    }
+	
+	function getIdLang($nsdoc) {
+        return $this->db->row_array($this->db->query("SELECT * FROM gallery WHERE gallery.id_doc='" . $this->security($nsdoc) . "'"));
+    }
 
 }
 

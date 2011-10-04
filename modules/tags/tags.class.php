@@ -108,6 +108,7 @@ class tags extends add_module {
             } else {
                 if (empty($mod_order) || $mod_order == "none" && empty($search)) {
                     $data = $this->model->getInfoDocMod($id);
+					if(!$data['sch']) return false;
                     $data['text'] = $this->lang['lang_m_descr_tags_lang'];
                     $side = $this->model->getSideMod($id, "tags");
                     $data['side_for_doc'] = "";

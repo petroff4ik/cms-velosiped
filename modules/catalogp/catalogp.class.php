@@ -151,10 +151,10 @@ class catalogp extends add_module {
 
     function _getPrototypePages($ns_doc="", $class="") {
         $il = $this->model->getIdLang($ns_doc);
-        if ($il['descr_alias'])
-            return array('nsdoc' => $ns_doc, 'class' => $class, 'title' => $this->lang['l_add_pages'], 'descr' => array(0 => array('title' => $this->lang['name_el'], 'col' => 20, 'editor' => false, 'name' => 'name_alias', 'idlang' => $il['name_alias']), 1 => array('title' => $this->lang['desc_el'], 'col' => 80, 'editor' => false, 'name' => 'descr_alias', 'idlang' => $il['descr_alias']), 2 => array('title' => $this->lang['price_el'], 'col' => 5, 'editor' => false, 'name' => 'price_alias', 'idlang' => $il['price_alias'])));
+        if ($il['type'] == "el")
+            return array('nsdoc' => $ns_doc, 'class' => $class, 'title' => $this->lang['l_add_pages'], 'descr' => array(0 => array('title' => $this->lang['name_el'], 'col' => 20, 'editor' => false, 'name' => 'name_alias', 'idlang' => $il['name_alias']), 1 => array('title' => $this->lang['desc_el'], 'col' => 80, 'editor' => true, 'name' => 'descr_alias', 'idlang' => $il['descr_alias']), 2 => array('title' => $this->lang['price_el'], 'col' => 5, 'editor' => false, 'name' => 'price_alias', 'idlang' => $il['price_alias'])));
         else
-            return array('nsdoc' => $ns_doc, 'class' => $class, 'title' => $this->lang['l_add_pages'], 'descr' => array(0 => array('title' => $this->lang['name_el'], 'col' => 20, 'editor' => false, 'name' => 'name_alias', 'idlang' => $il['name_alias'])));
+            return array('nsdoc' => $ns_doc, 'class' => $class, 'title' => $this->lang['l_add_pages'], 'descr' => array(0 => array('title' => $this->lang['name_el'], 'col' => 20, 'editor' => false, 'name' => 'name_alias', 'idlang' => $il['name_alias']),1 => array('title' => $this->lang['desc_el'], 'col' => 80, 'editor' => true, 'name' => 'descr_alias', 'idlang' => $il['descr_alias'])));
     }
 
     function _upload() {
