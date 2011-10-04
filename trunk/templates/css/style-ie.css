@@ -39,6 +39,7 @@ margin-left:-120px;
 display:none;
 }
 
+
 * html div#content-box-in {
     margin-left:-20px;
     margin-right:72px;
@@ -48,7 +49,5 @@ display:none;
     position:absolute;
     padding:20px;
     background-color: #F1F5F6;
-    margin-top:20px;
-    margin-left:-150px;
     display:none;
 }

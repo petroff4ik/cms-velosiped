@@ -288,21 +288,21 @@
                     <? if ($value['sch_menu']): ?>
                         <?= $value['sch_menu_']; ?>
                         <? echo @$value['sch_add_menu']; ?>
-                        <a class="linkeditorid"  href="<?= $admin_dir_full; ?>delnsdoc/<?= $value['id']; ?>" onclick="return confirm('<?= $id_del; ?>');"><?= $l_delnsdoc; ?></a>  
+                        <a class="linkeditoridmenu"  href="<?= $admin_dir_full; ?>delnsdoc/<?= $value['id']; ?>" onclick="return confirm('<?= $id_del; ?>');"><?= $l_delnsdoc; ?></a>  
                     <? else: ?>
                         <? if (!empty($value['pages'])): ?>
-                            <? echo'<a class="linkeditorid"   href="' . $admin_dir_full . 'insertpagesindoc/' . $value["class"] . "/" . $value['id'] . '">' . $edm_insert_page . '</a><br />'; ?>
-                            <? echo'<a class="linkeditorid"  onclick="return confirm(\'' . $id_del . '\');" href="' . $admin_dir_full . 'delnsdoc/' . $value['id'] . '">' . $edm_del_doc . '</a><br />'; ?>
+                            <? echo'<a class="linkeditoridmenu"   href="' . $admin_dir_full . 'insertpagesindoc/' . $value["class"] . "/" . $value['id'] . '">' . $edm_insert_page . '</a><br />'; ?>
+                            <? echo'<a class="linkeditoridmenu"  onclick="return confirm(\'' . $id_del . '\');" href="' . $admin_dir_full . 'delnsdoc/' . $value['id'] . '">' . $edm_del_doc . '</a><br />'; ?>
                         <? endif; ?>
                         <? if ($value['mod_options']): ?>
                             <? echo $value['mod_options']; ?>
                         <? endif; ?>
                         <? if (isset($value['erlink'])): ?>
                             <? if ($value['s_add'])
-                                echo'<a class="linkeditorid"  href="' . $admin_dir_full . 'safe_launch/' . $value["class"] . '/add/' . $value['id'] . '/' . $value['lang'] . '">' . $edm_create . '</a><br />'; ?>
+                                echo'<a class="linkeditoridmenu"  href="' . $admin_dir_full . 'safe_launch/' . $value["class"] . '/add/' . $value['id'] . '/' . $value['lang'] . '">' . $edm_create . '</a><br />'; ?>
                         <? else: ?>
                             <? if ($_SESSION['user']['level'] >= ADMIN_THRESHOLD): ?>
-                                <span class="spans" style="cursor: pointer;color:#005D85;font-weight: bold;text-decoration: underline;"><?= $l_createinvfordoc; ?></span>
+                                <span class="spans" style="cursor: pointer;color:#005D85;font-weight: bold;text-decoration: underline;padding-bottom: 5px;display:block;"><?= $l_createinvfordoc; ?></span>
                                     <div id="dropbox3">
                                         <form method="post" action="<?= $admin_dir_full; ?>createinvfordoc/<?= $value['id']; ?>">
                                             <select name="iddoc"  >
@@ -316,10 +316,10 @@
                                 </div>
                             <? endif; ?>
                             <? if ($value['s_edit'])
-                                echo'<a class="linkeditorid"  class="linkeditorid"  href="' . $admin_dir_full . 'safe_launch/' . $value["class"] . '/edit/' . $value['id'] . '/' . $value['lang'] . '">' . $edm_edit . '</a><br />'; ?>
-                            <a class="linkeditorid"  href="/admin/uncoupling/<?= $value['id']; ?>"><?= $edm_uncoupling; ?></a> <br />
+                                echo'<a class="linkeditoridmenu"  class="linkeditoridmenu"  href="' . $admin_dir_full . 'safe_launch/' . $value["class"] . '/edit/' . $value['id'] . '/' . $value['lang'] . '">' . $edm_edit . '</a><br />'; ?>
+                            <a class="linkeditoridmenu"  href="/admin/uncoupling/<?= $value['id']; ?>"><?= $edm_uncoupling; ?></a> <br />
                             <? if ($value['s_del'])
-                                echo'<a class="linkeditorid"   onclick="return confirm(\'' . $id_del . '\');"  href="' . $admin_dir_full . 'safe_launch/' . $value["class"] . '/del/' . $value['id'] . '/' . '">' . $edm_del_all . '</a>'; ?><br/>
+                                echo'<a class="linkeditoridmenu"   onclick="return confirm(\'' . $id_del . '\');"  href="' . $admin_dir_full . 'safe_launch/' . $value["class"] . '/del/' . $value['id'] . '/' . '">' . $edm_del_all . '</a>'; ?><br/>
                         <? endif; ?>
                     <? endif; ?>
                 </td>
