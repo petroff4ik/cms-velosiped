@@ -35,7 +35,7 @@ class db extends error {
 	function query($string="", $arg=false) {//echo $string."<br /><br />";
 		try {
 			$time_start = list($sm, $ss) = explode(' ', microtime());
-			$string = $this->compile_binds($string, $arg);
+			if($arg)$string = $this->compile_binds($string, $arg);
 			$this->query_id = mysql_query($string, $this->link_id);
 			$time_end = list($em, $es) = explode(' ', microtime());
 			$this->total_time += ( $em + $es) - ($sm + $ss);

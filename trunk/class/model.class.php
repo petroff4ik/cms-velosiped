@@ -461,6 +461,10 @@ class model {
     function getCurentInventor($iddoc) {
         return $this->db->row_array($this->db->query("SELECT * FROM invert_sc WHERE idint = " . (int) $iddoc . ";"));
     }
+	
+	function getModForNsDoc($ns_tree){
+		return $this->db->result_array($this->db->query("SELECT * FROM ns_doc WHERE father_id = " . (int) $ns_tree . " GROUP BY module;"));
+	}
 
     /* Clear db
       DELETE id_lang_text FROM   id_lang_text left join sys_info on sys_info.id_lang=id_lang_text.id WHERE sys_info.id_lang is null;

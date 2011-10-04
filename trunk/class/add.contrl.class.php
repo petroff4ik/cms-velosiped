@@ -504,12 +504,19 @@ class add_contrl extends api {
         }
         $data['mod_orders'] = array();
         $data['mod_options'] = array();
+		
+		//create mod sort
+		$mod = $this->model->getModForNsDoc($id);
+		foreach($mod as $keyM=>$valueM){
+		$mod_orders = $this->_call_out_func($valueM['module'], "_retModOrder", $id, $lang, mysql_real_escape_string(urldecode($search)));
+		if (!empty($mod_orders))
+                $data['mod_orders'] = $mod_orders + $data['mod_orders'];
+		}
+		
+		//cretate body
         foreach ($datas['all_doc'] as $key => $value) {
             $tmp = $this->_call_out_func($value['module'], "_returnLink", $value['id'], $lang, mysql_real_escape_string(urldecode($search)), $mod_order);
-            $mod_orders = $this->_call_out_func($value['module'], "_retModOrder", $value['id'], $lang, mysql_real_escape_string(urldecode($search)));
             $cur_inv['inv'] = $this->model->getCurentInventor($value['id']);
-            if (!empty($mod_orders))
-                $data['mod_orders'] = $mod_orders + $data['mod_orders'];
             if (!empty($tmp)) {
                 if ($value['mod_options'])
                     $tmp['mod_options'] = $this->_call_out_func($value['module'], "_retModOptions", $value['id'], $lang, urldecode($search));

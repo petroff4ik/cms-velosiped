@@ -20,7 +20,7 @@ class gallery extends add_module {
 	 * }
 	 * _returnNLink Внешняя функция возврашаюшая не связанные документы модуля
 	 * _retModOrder Сортировка внешняя, создаваемая в модуле фщрмат ключ=значение
-	 * _getPagesAbs если нет страницы а запись в документе есть возврашает меню  с пунктами вставки страницыб сама функция возврашает (ns_doc->mod_table->id_lang_text where text is null)
+	 * _getPagesAbs если нет страницы а запись в документе есть возврашает меню  с пунктами вставки страницы, сама функция возврашает (ns_doc->mod_table->id_lang_text where text is null)
 	 * _retModOptions возврашает меню модюля при условии mod_options true
 	 * _creatorMenu возврашает лист в подвале для создании ссылки на функцию создания страничк, например кодга в для одного модуля есть несколько функций creator 
 	 * _getPrototypePages возврашает прототип страницы при условии возврата true _getPagesAbs (отсутсвие страницы но есть сам документ)(формат ишем в модулях)
@@ -67,9 +67,10 @@ class gallery extends add_module {
 		if (empty($mod_order) || $mod_order == "none") {
 			$ret = $this->model->get_img($id, $lang, $search);
 		}
+		if(!$ret)return false;
 		if ($ret['types']) {
 			$ret['s_edit'] = false;
-			$ret['mod_options'] = '<a href="' . ADMIN_DIR_FULL . 'safe_launch/gallery/editall/' . $id . '/' . $lang . '">' . $this->lang['l_editall'] . '</a><br/>';
+			$ret['mod_options'] = '<a class="linkeditoridmenu" href="' . ADMIN_DIR_FULL . 'safe_launch/gallery/editall/' . $id . '/' . $lang . '">' . $this->lang['l_editall'] . '</a><br/>';
 			$ret['text_ext'] = '<img style="padding:10px;width:100px;height:100px;" align="center" src="/templates/images/blank_all.jpg"/>';
 			return $ret;
 		}
@@ -383,6 +384,15 @@ class gallery extends add_module {
 				return $this->view->view("templates/admin_modules/gallery/list.tpl", $data, true);
 		}
 	}
+	
+	function _getPrototypePages($ns_doc="", $class="") {
+        $il = $this->model->getIdLang($ns_doc);
+        return array('nsdoc' => $ns_doc, 'class' => $this->class, 'title' => $this->lang['l_add_pages'], 'descr' => array( 0 => array('title' => $this->lang['l_description'], 'col' => 80, 'editor' => true, 'name' => 'text', 'idlang' => $il['description'])));
+    }
+	
+	function _getPagesAbs($ns_doc) {
+        return $this->model->getPagesAbs($ns_doc);
+    }
 
 }
 
