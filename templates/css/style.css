@@ -495,11 +495,18 @@ table.table3 td {padding: 1px 5px; height: 32px; color:#58595b; }
 
 }
 
+
+
 #dropbox3{
     position:absolute;
     padding:20px;
     background-color: #F1F5F6;
-    margin-top:5px;
-    margin-left:-50px;
     display:none;
+}
+
+
+
+.linkeditoridmenu{
+	display:block;
+	margin-bottom: -8px;
 }
