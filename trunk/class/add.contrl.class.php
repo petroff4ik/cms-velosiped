@@ -478,8 +478,10 @@ class add_contrl extends api {
         $pag_tmp = $pag;
         $pag = ($pag * LIMIT_DB) - LIMIT_DB;
         $sch = $this->model->getShedule2($id);
-        $data['sch2'] = $this->model->getShedule($id); //all inventor
+        $data['sch2'] = $this->model->getShedule3($id); //all inventor
         $data['sch3'] = $this->model->getSheduleAll($id);
+		foreach($data['sch2'] as $key2=>$value2)$data['sch2'][$key2]['private_info'] = $this->_call_out_func($value2['module'], "_returnLink", $value2['id'], $lang);
+		foreach($data['sch3'] as $key3=>$value3)$data['sch3'][$key3]['private_info'] = $this->_call_out_func($value3['module'], "_returnLink", $value3['id'], $lang);
         $data['sch'] = array();
         if (!empty($sch))
             foreach ($sch as $key => $value) {
@@ -537,6 +539,7 @@ class add_contrl extends api {
         $tree = $this->model->GetInfoForLinkTree($id);
         $data['alias'] = $tree['text'];
         $data['side_doc'] = $this->model->return_side($tree['template_out']);
+		$data['all_side'] = $this->model->returnAllSide();
         $data['create_module'] = $this->model->GetModelFroCreate();
         foreach ($data['create_module'] as $key => $value) {
             $tmpM = $this->_call_out_func($value['class'], "_creatorMenu", $value);

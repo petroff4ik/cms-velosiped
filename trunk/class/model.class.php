@@ -382,7 +382,7 @@ class model {
             $arg = "OR invert_sc.idint = '" . (int) $intid . "'";
         else
             $arg = "OR invert_sc.ns_tree='" . (int) $ns_tree . "'";
-        return $this->db->result_array($this->db->query("SELECT parent.*,modules.*,parent.name as namet,ns_doc.* FROM ns_tree as node,ns_tree as parent,modules,ns_doc WHERE node.id='" . $ns_tree . "' AND parent.rgt >= node.rgt AND parent.lft <= node.lft AND modules.class=ns_doc.module AND modules.schedule=1 AND modules.level_access <= '" . $_SESSION['user']['level_access'] . "' AND parent.id=ns_doc.father_id AND ns_doc.sch=1 AND ns_doc.show_me=1  AND   ns_doc.id NOT IN(SELECT invert_sc.iddoc FROM invert_sc WHERE invert_sc.iddoc=ns_doc.id AND( node.lft  BETWEEN invert_sc.lft AND invert_sc.rgt  " . $arg . " ))  ;"));
+        return $this->db->result_array($this->db->query("SELECT parent.*,modules.*,parent.name as namet,ns_doc.* FROM ns_tree as node,ns_tree as parent,modules,ns_doc WHERE node.id='" . $ns_tree . "' AND parent.rgt >= node.rgt AND parent.lft <= node.lft AND modules.class=ns_doc.module AND modules.schedule=1 AND modules.level_access <= '" . $_SESSION['user']['level_access'] . "' AND parent.id=ns_doc.father_id  AND ns_doc.show_me=1  AND  (ns_doc.sch=1 AND ns_doc.id NOT IN(SELECT invert_sc.iddoc FROM invert_sc WHERE invert_sc.iddoc=ns_doc.id AND( node.lft  BETWEEN invert_sc.lft AND invert_sc.rgt  " . $arg . " )) OR (ns_doc.father_id = node.id AND ns_doc.sch=0));"));
     }
 
     function getShedule2($ns_tree) {
@@ -391,6 +391,14 @@ class model {
 
     function getSheduleAll($ns_tree) {
         return $this->db->result_array($this->db->query("SELECT parent.*,modules.*,parent.name as namet,ns_doc.* FROM ns_tree as node,ns_tree as parent,modules,ns_doc WHERE node.id='" . $ns_tree . "' AND parent.rgt >= node.rgt AND parent.lft <= node.lft AND modules.class=ns_doc.module AND modules.schedule=1 AND modules.level_access <= '" . $_SESSION['user']['level_access'] . "' AND parent.id=ns_doc.father_id AND ns_doc.sch=1 AND ns_doc.show_me=1 AND   ns_doc.id NOT IN(SELECT invert_sc.iddoc FROM invert_sc WHERE invert_sc.iddoc=ns_doc.id AND( node.lft  BETWEEN invert_sc.lft AND invert_sc.rgt   ))  ;"));
+    }
+	
+	function getShedule3($ns_tree, $intid="") {
+        if ($intid)
+            $arg = "OR invert_sc.idint = '" . (int) $intid . "'";
+        else
+            $arg = "OR invert_sc.ns_tree='" . (int) $ns_tree . "'";
+        return $this->db->result_array($this->db->query("SELECT parent.*,modules.*,parent.name as namet,ns_doc.* FROM ns_tree as node,ns_tree as parent,modules,ns_doc WHERE node.id='" . $ns_tree . "' AND parent.rgt >= node.rgt AND parent.lft <= node.lft AND modules.class=ns_doc.module AND modules.schedule=1 AND modules.level_access <= '" . $_SESSION['user']['level_access'] . "' AND parent.id=ns_doc.father_id  AND ns_doc.show_me=1  AND  ns_doc.sch=1 AND ns_doc.id NOT IN(SELECT invert_sc.iddoc FROM invert_sc WHERE invert_sc.iddoc=ns_doc.id AND( node.lft  BETWEEN invert_sc.lft AND invert_sc.rgt  " . $arg . " )) ;"));
     }
 
     function updateOpDb($val) {
@@ -464,6 +472,10 @@ class model {
 	
 	function getModForNsDoc($ns_tree){
 		return $this->db->result_array($this->db->query("SELECT * FROM ns_doc WHERE father_id = " . (int) $ns_tree . " GROUP BY module;"));
+	}
+	
+	function returnAllSide(){
+		return $this->db->result_array($this->db->query("SELECT templates.*,side_site.* FROM templates,side_site WHERE templates.id = side_site.id_template AND free =1 order by templates.name;"));
 	}
 
     /* Clear db

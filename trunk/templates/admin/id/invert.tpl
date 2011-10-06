@@ -7,7 +7,14 @@
 <?if(!empty($inv)):?>
     <?foreach($inv as $key=>$value):?>
     <tr bgcolor="#e0e0e0">
-        <td><?=$value['name_module'];?> <? if ($value['types']): ?>(<?= $value['types']; ?>)<? endif; ?></td><td><?=$value['area']['text'];?></td><td><?=$value['tree']['text'];?></td><td>
+        <td><b><?=$value['name_module'];?></b> <? if ($value['types']): ?>(<?= $value['types']; ?>)<? endif; ?>
+			<br/>
+			<?if(isset($value['private_info']['text'])):?>
+		<?=$value['private_info']['text'];?>
+			<?else:?>
+			<b>Info not found</b>
+			<?endif;?>
+		</td><td><?=$value['area']['text'];?></td><td><?=$value['tree']['text'];?></td><td>
         <?= mb_substr(htmlspecialchars($value['idint']['text']),0,200,"utf-8");?></td>
         <td>
             <a href="<?=$admin_dir_full;?>editinv/<?=$value['id'];?>" title="<?=$l_editinv;?>"><?=$l_inv_edit;?></a><br/>
