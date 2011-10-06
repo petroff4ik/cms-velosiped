@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 02, 2011 at 11:44 PM
+-- Generation Time: Oct 05, 2011 at 04:08 PM
 -- Server version: 5.1.40
 -- PHP Version: 5.3.3
 
@@ -290,7 +290,51 @@ INSERT INTO `id_lang_text` (`id`, `text`, `lang`, `date`) VALUES
 (51, 'Intro', 'it', '2011-10-02 00:00:00'),
 (51, 'Intro', 'en', '2011-10-02 00:00:00'),
 (51, 'Интро', 'ru', '2011-10-02 00:00:00'),
-(50, '<p>Далi</p>', 'ua', '0000-00-00 00:00:00');
+(50, '<p>Далi</p>', 'ua', '0000-00-00 00:00:00'),
+(57, 'пиццерия Синьор Помидор', 'ru', '2011-10-05 15:38:49'),
+(57, 'Signor Tomato Pizza', 'en', '2011-10-05 15:38:49'),
+(57, 'Il signor Pizza pomodoro', 'it', '2011-10-05 15:38:49'),
+(57, 'піцерія Синьйор Помідор', 'ua', '2011-10-05 15:38:49'),
+(58, 'Пиццерия синьор помидор пица вкусно поесть', 'ru', '2011-10-05 15:38:49'),
+(58, 'Signor Pizza tomato pizza eat', 'en', '2011-10-05 15:38:49'),
+(58, 'Il signor Pizza Pizza pomodoro mangiare', 'it', '2011-10-05 15:38:49'),
+(58, 'Піцерія синьйор помідор піца смачно поїсти', 'ua', '2011-10-05 15:38:49'),
+(59, 'Вкуснейшая пицца в киеве, готовится только в пиццерии Синьор Помидор', 'ru', '2011-10-05 15:38:49'),
+(59, 'Delicious pizza in Kiev, is produced only in a pizzeria Signor Tomato', 'en', '2011-10-05 15:38:49'),
+(59, 'Deliziosa pizza a Kiev, è prodotto solo in una pizzeria signor Pomodoro', 'it', '2011-10-05 15:38:49'),
+(59, 'Смачна піца в києві, готується тільки в піцерії Синьйор Помідор', 'ua', '2011-10-05 15:38:49'),
+(60, 'tag', 'ru', '2011-10-05 15:38:49'),
+(60, 'tag', 'en', '2011-10-05 15:38:49'),
+(60, 'tag', 'it', '2011-10-05 15:38:49'),
+(60, 'tag', 'ua', '2011-10-05 15:38:49'),
+(61, 'Здравствуйте. Мы открыли наш персональный сайт.', 'ru', '2011-10-05 15:54:17'),
+(61, 'Hello We opened our personal website.', 'en', '2011-10-05 15:54:17'),
+(61, 'Ciao Abbiamo aperto il nostro sito personale.', 'it', '2011-10-05 15:54:17'),
+(61, 'Доброго дня. Ми відкрили наш персональний сайт.', 'ua', '2011-10-05 15:54:17'),
+(62, 'Здесь мы будем выкладывать самые свежие новинки, также вы можете посмотреть актуальное меню, оставить свои предложения.', 'ru', '2011-10-05 15:54:17'),
+(62, 'Here we will lay out the latest news, you can also see the actual menu, leave your suggestions.', 'en', '2011-10-05 15:54:17'),
+(62, 'Qui si getterà le ultime notizie, è anche possibile vedere il menu effettivo, lasciare i vostri suggerimenti.', 'it', '2011-10-05 15:54:17'),
+(62, 'Тут ми будемо викладати найсвіжіші новинки, також ви можете подивитися актуальне меню, залишити свої пропозиції.', 'ua', '2011-10-05 15:54:17'),
+(63, '<p>Здесь мы будем выкладывать самые свежие новинки, также вы можете посмотреть актуальное меню, оставить свои предложения.</p>', 'ru', '2011-10-05 15:54:17'),
+(63, '<p><span id="result_box" lang="en"><span>Here we will</span> <span>lay out</span> <span>the latest</span> <span>news</span><span>, you can also</span> <span>see</span> <span>the actual</span> <span>menu</span><span>,</span> <span>leave your</span> <span>suggestions.</span></span></p>', 'en', '2011-10-05 15:54:17'),
+(63, '<p><span id="result_box" lang="it"><span>Qui si</span> <span>getter&agrave;</span> <span>le ultime notizie</span><span>, &egrave; anche possibile</span> <span>vedere il</span> <span>menu effettivo</span><span>, lasciare</span> <span>i vostri suggerimenti</span><span>.</span></span></p>', 'it', '2011-10-05 15:54:17'),
+(63, '<p><span id="result_box" lang="uk"><span>Тут</span> <span>ми</span> <span>будемо</span> <span>викладати</span> <span>найсвіжіші</span> <span>новинки</span><span>, також ви</span> <span>можете</span> <span>подивитися</span> <span>актуальне</span> <span>меню</span><span>, залишити</span> <span>свої</span> <span>пропозиції.</span></span></p>', 'ua', '2011-10-05 15:54:17'),
+(64, 'Новости', 'ru', '2011-10-05 15:58:35'),
+(64, 'News', 'en', '2011-10-05 15:58:35'),
+(64, 'Notizie', 'it', '2011-10-05 15:58:35'),
+(64, 'Новини', 'ua', '2011-10-05 15:58:35'),
+(65, 'Новости пицца киев вкусно', 'ru', '2011-10-05 15:58:35'),
+(65, 'News cues tasty pizza', 'en', '2011-10-05 15:58:35'),
+(65, 'Spunti notizia gustosa pizza', 'it', '2011-10-05 15:58:35'),
+(65, 'Новини піца київ смачно', 'ua', '2011-10-05 15:58:35'),
+(66, 'Самые свежие новости, актуальное состояние меню. Обновление и новинки', 'ru', '2011-10-05 15:58:35'),
+(66, 'The latest news, current state of the menu. Updates and News', 'en', '2011-10-05 15:58:35'),
+(66, 'Le ultime notizie, lo stato attuale del menu. Aggiornamenti e Novità', 'it', '2011-10-05 15:58:35'),
+(66, 'Найсвіжіші новини, актуальний стан меню. Оновлення та новинки', 'ua', '2011-10-05 15:58:35'),
+(67, 'tag', 'ru', '2011-10-05 15:58:35'),
+(67, 'tag', 'en', '2011-10-05 15:58:35'),
+(67, 'tag', 'it', '2011-10-05 15:58:35'),
+(67, 'tag', 'ua', '2011-10-05 15:58:35');
 
 -- --------------------------------------------------------
 
@@ -402,14 +446,15 @@ CREATE TABLE IF NOT EXISTS `news` (
   KEY `shortdescr` (`shortdescr`),
   KEY `title` (`title`),
   KEY `body` (`body`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `news`
 --
 
 INSERT INTO `news` (`id`, `body`, `title`, `shortdescr`, `date`, `id_doc`) VALUES
-(1, 82, 80, 81, '2011-10-02', 2);
+(1, 82, 80, 81, '2011-10-02', 2),
+(2, 63, 61, 62, '2011-10-05', 5);
 
 -- --------------------------------------------------------
 
@@ -433,12 +478,19 @@ CREATE TABLE IF NOT EXISTS `ns_doc` (
   PRIMARY KEY (`id`),
   KEY `father_id` (`father_id`),
   KEY `module` (`module`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `ns_doc`
 --
 
+INSERT INTO `ns_doc` (`id`, `date`, `father_id`, `show_me`, `module`, `side_for_doc`, `children_id`, `mod_order`, `mod_group`, `mod_options`, `sch`, `types`) VALUES
+(1, '2011-10-05 15:12:46', 1, 1, 'lang', 'module', 0, '', 0, 0, 1, ''),
+(2, '2011-10-05 15:13:07', 1, 1, 'tree', 'module', 0, '', 0, 0, 1, ''),
+(3, '2011-10-05 15:38:49', 1, 1, 'tags', 'module', 0, '', 0, 0, 0, ''),
+(4, '2011-10-05 15:39:05', 1, 1, 'tags', 'module', 0, '', 0, 0, 1, ''),
+(5, '2011-10-05 15:54:17', 2, 1, 'news', 'body', 0, '', 0, 0, 0, ''),
+(6, '2011-10-05 15:58:35', 2, 1, 'tags', 'module', 0, '', 0, 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -473,11 +525,11 @@ CREATE TABLE IF NOT EXISTS `ns_tree` (
 
 INSERT INTO `ns_tree` (`id`, `name`, `lft`, `rgt`, `level`, `show_me`, `adress`, `side`, `module`, `template_out`, `func_name`, `alias`, `templates_int`, `short_a`, `max_short_a`) VALUES
 (1, 'intro', 1, 12, 0, 1, '', 'menu', 'tree', '1', 'start', '51', '', 0, 1),
-(2, 'news', 2, 3, 1, 1, '', 'menu', 'news', '1', 'show', '52', '', 0, 1),
-(3, 'menu', 4, 5, 1, 1, '', 'menu', 'catalogp', '1', 'show', '53', '', 0, 1),
-(4, 'about_us', 6, 7, 1, 1, '', 'menu', 'dv', '1', 'id', '54', '', 0, 1),
-(5, 'contact', 8, 9, 1, 1, '', 'menu', 'dv', '1', 'id', '55', '', 0, 1),
-(6, 'reviews', 10, 11, 1, 1, '', 'menu', 'comment', '1', 'comm', '56', '', 0, 1);
+(2, 'news', 2, 3, 1, 1, '', 'menu', 'news', '4', 'show', '52', '', 0, 1),
+(3, 'menu', 4, 5, 1, 1, '', 'menu', 'catalogp', '4', 'show', '53', '', 0, 1),
+(4, 'about_us', 6, 7, 1, 1, '', 'menu', 'dv', '4', 'id', '54', '', 0, 1),
+(5, 'contact', 8, 9, 1, 1, '', 'menu', 'dv', '4', 'id', '55', '', 0, 1),
+(6, 'reviews', 10, 11, 1, 1, '', 'menu', 'comment', '4', 'comm', '56', '', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -504,33 +556,27 @@ INSERT INTO `side_module` (`id`, `side`, `id_template`) VALUES
 ('news_ev', 'body', 1),
 ('catalogp_sc', 'body', 5),
 ('comment_sc', 'comment_vi', 5),
+('tags_sc', 'meta_key', 5),
+('tags_st', 'meta_key', 5),
+('tags_sc', 'meta_key', 4),
+('user_auth_sc', 'lang', 1),
+('lang_sc', 'lang', 5),
+('lang_ev', 'lang', 5),
+('tags_st', 'meta_key', 4),
+('tags_sc', 'meta_key', 1),
+('tags_st', 'meta_key', 1),
+('tags_sc', NULL, 5),
+('tags_st', NULL, 5),
+('tags_sc', NULL, 4),
+('tags_st', NULL, 4),
+('tags_sc', NULL, 1),
+('tags_st', NULL, 1),
 ('tags_sc', 'title', 5),
 ('tags_st', 'title', 5),
 ('tags_sc', 'title', 4),
 ('tags_st', 'title', 4),
 ('tags_sc', 'title', 1),
 ('tags_st', 'title', 1),
-('user_auth_sc', 'lang', 1),
-('lang_sc', 'lang', 5),
-('lang_ev', 'lang', 5),
-('tags_st', NULL, 1),
-('tags_sc', NULL, 1),
-('tags_st', NULL, 4),
-('tags_sc', NULL, 4),
-('tags_st', NULL, 5),
-('tags_sc', NULL, 5),
-('tags_st', 'meta_key', 1),
-('tags_sc', 'meta_key', 1),
-('tags_st', 'meta_key', 4),
-('tags_sc', 'meta_key', 4),
-('tags_st', 'meta_key', 5),
-('tags_sc', 'meta_key', 5),
-('tags_st', 'meta_descr', 1),
-('tags_sc', 'meta_descr', 1),
-('tags_st', 'meta_descr', 4),
-('tags_sc', 'meta_descr', 4),
-('tags_st', 'meta_descr', 5),
-('tags_sc', 'meta_descr', 5),
 ('comment_sc', 'comment', 5),
 ('comment_ev', 'body', 4),
 ('comment_ev', 'comment_vi', 5),
@@ -541,7 +587,13 @@ INSERT INTO `side_module` (`id`, `side`, `id_template`) VALUES
 ('catalogp_ev', 'body', 4),
 ('catalogp_ev', 'body', 5),
 ('map_sc', 'body', 1),
-('map_ev', 'body', 1);
+('map_ev', 'body', 1),
+('tags_st', 'meta_descr', 1),
+('tags_sc', 'meta_descr', 1),
+('tags_st', 'meta_descr', 4),
+('tags_sc', 'meta_descr', 4),
+('tags_st', 'meta_descr', 5),
+('tags_sc', 'meta_descr', 5);
 
 -- --------------------------------------------------------
 
@@ -645,12 +697,25 @@ CREATE TABLE IF NOT EXISTS `tags_side` (
   `id_side` int(11) NOT NULL,
   `type` varchar(20) NOT NULL,
   PRIMARY KEY (`idts`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `tags_side`
 --
 
+INSERT INTO `tags_side` (`idts`, `id_template`, `id_side`, `type`) VALUES
+(1, 1, 9, 'tags_title'),
+(2, 4, 10, 'tags_title'),
+(3, 5, 31, 'tags_title'),
+(4, 1, 0, 'tags_tags'),
+(5, 4, 0, 'tags_tags'),
+(6, 5, 0, 'tags_tags'),
+(7, 1, 12, 'tags_metakey'),
+(8, 4, 16, 'tags_metakey'),
+(9, 5, 32, 'tags_metakey'),
+(10, 1, 13, 'tags_metadescr'),
+(11, 4, 17, 'tags_metadescr'),
+(12, 5, 33, 'tags_metadescr');
 
 -- --------------------------------------------------------
 
@@ -665,12 +730,21 @@ CREATE TABLE IF NOT EXISTS `tags_voc` (
   `pid` int(11) NOT NULL,
   PRIMARY KEY (`idtv`),
   KEY `id_doc` (`id_doc`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `tags_voc`
 --
 
+INSERT INTO `tags_voc` (`idtv`, `id_doc`, `type`, `pid`) VALUES
+(1, 57, 'tags_title', 3),
+(2, 58, 'tags_metakey', 3),
+(3, 59, 'tags_metadescr', 3),
+(4, 60, 'tags_tags', 3),
+(5, 64, 'tags_title', 6),
+(6, 65, 'tags_metakey', 6),
+(7, 66, 'tags_metadescr', 6),
+(8, 67, 'tags_tags', 6);
 
 -- --------------------------------------------------------
 

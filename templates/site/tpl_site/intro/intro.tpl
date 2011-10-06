@@ -13,8 +13,7 @@
 <body>
 <div id="header"> </div>
 <div id="wrapper">
-<div align="center"><?=$mini_logo;?>
-<img  src="/templates/site/tpl_site/intro/images/logobig.jpg" alt="logo" border="0">
+<div align="center"><?=$logo;?>
 </div>
 <br /><br />
 <div id="langmenu">

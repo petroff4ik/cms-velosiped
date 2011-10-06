@@ -141,7 +141,8 @@ class tags extends add_module {
     }
 
     function _creatorMenu($arr) {
-        return array(0 => array("class" => $arr['class'] . "|" . "_createSys", "name_module" => $arr['name_module'] . $this->lang['lang_tags_menuc']));
+        //return array(0 => array("class" => $arr['class'] . "|" . "_createSys", "name_module" => $arr['name_module'] . $this->lang['lang_tags_menuc']));
+		return false;
     }
 
     function _createSys($ns_tree) {

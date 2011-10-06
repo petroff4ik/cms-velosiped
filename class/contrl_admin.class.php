@@ -607,7 +607,7 @@ class contrl_admin extends add_contrl {
             $tmp = $value;
             if ($value['rgt'] && $value['lft'])
                 $tmp['area'] = $this->model->getArea($value['rgt'], $value['lft']);
-
+			$tmp['private_info'] = $this->_call_out_func($value['module'], "_returnLink", $value['iddoc'], $GLOBALS['lang']);
 
             if ($value['ns_tree'])
                 $tmp['tree'] = $this->model->GetInfoForLinkTree($value['ns_tree']);
@@ -623,6 +623,10 @@ class contrl_admin extends add_contrl {
 
     protected function invcreate($url) {
         $data['inv'] = $this->model->returnScModAll();
+		foreach($data['inv'] as $key=>$value){
+		$data['inv'][$key]['private_info'] = $this->_call_out_func($value['module'], "_returnLink", $value['id'], $GLOBALS['lang']);
+		
+		}
         $data['ns_tree'] = $this->_call_out_func("tree_model", "return_cat", "cat!", $this->model->get_info(1, "name"));
         $data['mod'] = $this->model->return_config_mod();
         $data['body'] = $this->view->view("templates/admin/id/invertcre.tpl", $data, true);
@@ -647,6 +651,10 @@ class contrl_admin extends add_contrl {
     protected function editinv($url) {
         $data['curent'] = $this->model->getInvertor2($url[1]);
         $data['inv'] = $this->model->returnScModAll();
+		foreach($data['inv'] as $key=>$value){
+		$data['inv'][$key]['private_info'] = $this->_call_out_func($value['module'], "_returnLink", $value['id'], $GLOBALS['lang']);
+		
+		}
         $data['ns_tree'] = $this->_call_out_func("tree_model", "return_cat", "cat!", $this->model->get_info(1, "name"));
         $data['mod'] = $this->model->return_config_mod();
         $data['body'] = $this->view->view("templates/admin/id/editinv.tpl", $data, true);

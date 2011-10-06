@@ -66,8 +66,8 @@ $.scrollTo($("#n"+$(this).attr("idn")),300);
 			</div><!-- #content-->
 		</div><!-- #container-->
 
-		<div class="sidebar" id="sideLeft"><?=$mini_logo;?>
-		<img src="/templates/site/tpl_site/main/images/minilogo.jpg"  border="0">
+		<div class="sidebar" id="sideLeft">
+<?=$mini_logo;?>
 		<div id="menu">
 	      <?=$menu;?>
 	    </div>

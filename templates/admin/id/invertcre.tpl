@@ -11,7 +11,7 @@
                 <td>
                     <select name="iddoc">
                         <?foreach($inv as $key=>$value):?>
-                        <option value="<?=$value['id'];?>"><?=$value['name_module'];?> (<?=$value['text'];?>)<?=$value['types'];?></option>
+                        <option value="<?=$value['id'];?>"><?=$value['name_module'];?> (<?=$value['text'];?>)<?=$value['types'];?><? echo @mb_substr(htmlspecialchars($value['private_info']['text']), 0, 30, 'UTF-8');?></option>
                         <?endforeach;?>
                     </select>
                 </td>
