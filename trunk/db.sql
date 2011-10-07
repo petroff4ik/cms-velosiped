@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 02, 2011 at 11:34 AM
+-- Generation Time: Oct 07, 2011 at 01:23 PM
 -- Server version: 5.1.40
 -- PHP Version: 5.3.3
 
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `body` int(11) NOT NULL,
   `id_doc` int(11) NOT NULL,
   `int_id` int(11) NOT NULL,
-  `ext_id` int(11) DEFAULT NULL,
+  `ext_id` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `form_level` (
   `id_level` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `url` (`url`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=386 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=388 ;
 
 --
 -- Dumping data for table `form_level`
@@ -194,7 +194,9 @@ INSERT INTO `form_level` (`id`, `url`, `level`, `name`, `id_level`) VALUES
 (382, 'updateinv', '5', '{l_updateinv}', 343),
 (383, 'createinvfordoc', '5', '{l_createinvfordoc}', 343),
 (384, 'createinvfortree', '5', '{l_createinvfortree}', 343),
-(385, 'unsafe_launch', '5', '{unsafe_launch}', 343);
+(385, 'unsafe_launch', '5', '{unsafe_launch}', 343),
+(386, 'invdown', '3', '{l_invdown}', 343),
+(387, 'invup', '3', '{l_invup}', 343);
 
 -- --------------------------------------------------------
 
@@ -265,7 +267,8 @@ INSERT INTO `id_lang_text` (`id`, `text`, `lang`, `date`) VALUES
 (14, 'Операция прошла удачно', 'ru', '2011-02-11 23:39:07'),
 (15, 'Здраствуйте', 'ru', '2011-02-12 01:40:15'),
 (16, 'Вы', 'ru', '2011-02-12 01:41:02'),
-(17, 'Уровень доступа', 'ru', '2011-02-12 01:41:24');
+(17, 'Уровень доступа', 'ru', '2011-02-12 01:41:24'),
+(50, '<p>Далi</p>', 'ua', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -281,7 +284,7 @@ CREATE TABLE IF NOT EXISTS `invert_sc` (
   `ns_tree` int(11) DEFAULT NULL,
   `idint` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `invert_sc`
@@ -301,7 +304,7 @@ CREATE TABLE IF NOT EXISTS `lang` (
   `default_lang` varchar(5) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `lang`
@@ -355,7 +358,7 @@ INSERT INTO `modules` (`id`, `class`, `name`, `schedule`, `scheduleSide`, `templ
 (6, 'user_auth', 'login', 1, 'user_auth_sc', '', 'Авторизация на сайте', 'Класс для авторизации юзве', '1', 0, 0, '', '1', '', 0, 0, 0, ''),
 (22, 'tags', 'show', 1, 'tags_sc', '', 'Теги', 'Теги, заголовки, ключи и дескрипторы', '0', 6, 0, '1', '1', '1', 0, 0, 1, ''),
 (23, 'catalogp', 'show', 0, 'catalogp_sc', '', 'Католог упр.', 'Католого с одним вложением,упрошеный', '1', 7, 0, '1', '1', '1', 1, 0, 1, ''),
-(24, 'map', 'show', 0, 'map_sc', NULL, 'Карта сайта', 'Создает карту сайта', '1', 8, 0, '0', '1', '1', 1, 0, 1, ''),
+(24, 'map', 'show', 0, 'map_sc', '', 'Карта сайта', 'Создает карту сайта', '1', 8, 0, '0', '1', '1', 1, 0, 1, ''),
 (25, 'gallery', 'img', 0, 'img_sc', '', 'Галерея', 'Ajax-фото галерея', '1', 9, 0, '1', '1', '1', 1, 1, 1, '');
 
 -- --------------------------------------------------------
@@ -401,6 +404,8 @@ CREATE TABLE IF NOT EXISTS `ns_doc` (
   `mod_options` int(11) NOT NULL,
   `sch` int(11) NOT NULL,
   `types` varchar(10) NOT NULL,
+  `sch_n` int(11) NOT NULL DEFAULT '0',
+  `prew_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `father_id` (`father_id`),
   KEY `module` (`module`)
@@ -468,33 +473,27 @@ INSERT INTO `side_module` (`id`, `side`, `id_template`) VALUES
 ('news_ev', 'body', 1),
 ('catalogp_sc', 'body', 5),
 ('comment_sc', 'comment_vi', 5),
+('tags_sc', 'meta_key', 5),
+('tags_st', 'meta_key', 5),
+('tags_sc', 'meta_key', 4),
+('user_auth_sc', 'lang', 1),
+('lang_sc', 'lang', 5),
+('lang_ev', 'lang', 5),
+('tags_st', 'meta_key', 4),
+('tags_sc', 'meta_key', 1),
+('tags_st', 'meta_key', 1),
+('tags_sc', NULL, 5),
+('tags_st', NULL, 5),
+('tags_sc', NULL, 4),
+('tags_st', NULL, 4),
+('tags_sc', NULL, 1),
+('tags_st', NULL, 1),
 ('tags_sc', 'title', 5),
 ('tags_st', 'title', 5),
 ('tags_sc', 'title', 4),
 ('tags_st', 'title', 4),
 ('tags_sc', 'title', 1),
 ('tags_st', 'title', 1),
-('user_auth_sc', 'lang', 1),
-('lang_sc', 'lang', 5),
-('lang_ev', 'lang', 5),
-('tags_st', NULL, 1),
-('tags_sc', NULL, 1),
-('tags_st', NULL, 4),
-('tags_sc', NULL, 4),
-('tags_st', NULL, 5),
-('tags_sc', NULL, 5),
-('tags_st', 'meta_key', 1),
-('tags_sc', 'meta_key', 1),
-('tags_st', 'meta_key', 4),
-('tags_sc', 'meta_key', 4),
-('tags_st', 'meta_key', 5),
-('tags_sc', 'meta_key', 5),
-('tags_st', 'meta_descr', 1),
-('tags_sc', 'meta_descr', 1),
-('tags_st', 'meta_descr', 4),
-('tags_sc', 'meta_descr', 4),
-('tags_st', 'meta_descr', 5),
-('tags_sc', 'meta_descr', 5),
 ('comment_sc', 'comment', 5),
 ('comment_ev', 'body', 4),
 ('comment_ev', 'comment_vi', 5),
@@ -503,7 +502,15 @@ INSERT INTO `side_module` (`id`, `side`, `id_template`) VALUES
 ('gallery_ev', 'body', 4),
 ('gallery_ev', 'body', 5),
 ('catalogp_ev', 'body', 4),
-('catalogp_ev', 'body', 5);
+('catalogp_ev', 'body', 5),
+('map_sc', 'body', 1),
+('map_ev', 'body', 1),
+('tags_st', 'meta_descr', 1),
+('tags_sc', 'meta_descr', 1),
+('tags_st', 'meta_descr', 4),
+('tags_sc', 'meta_descr', 4),
+('tags_st', 'meta_descr', 5),
+('tags_sc', 'meta_descr', 5);
 
 -- --------------------------------------------------------
 
@@ -519,7 +526,7 @@ CREATE TABLE IF NOT EXISTS `side_site` (
   PRIMARY KEY (`ids`),
   KEY `side` (`side`),
   KEY `id_template` (`id_template`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=38 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=40 ;
 
 --
 -- Dumping data for table `side_site`
@@ -553,7 +560,9 @@ INSERT INTO `side_site` (`side`, `free`, `id_template`, `ids`) VALUES
 ('comment_vi', '1', 5, 34),
 ('comment', '1', 5, 35),
 ('slogan', '1', 5, 36),
-('slogan1', '1', 5, 37);
+('slogan1', '1', 5, 37),
+('logo', '1', 1, 38),
+('mini_logo', '1', 4, 39);
 
 -- --------------------------------------------------------
 
@@ -656,9 +665,9 @@ CREATE TABLE IF NOT EXISTS `templates` (
 --
 
 INSERT INTO `templates` (`id`, `path_file`, `name`, `show_me`, `path_small_img`, `name_project`) VALUES
-(1, 'templates/site/tpl_site/intro/intro.tpl', 'intro', '0', 'templates/site/tpl_site/intro/small_img/small_img.jpg', 'intro'),
+(1, 'templates/site/tpl_site/intro/intro.tpl', 'intro', '1', 'templates/site/tpl_site/intro/small_img/small_img.jpg', 'intro'),
 (4, 'templates/site/tpl_site/main/main.tpl', 'main', '0', 'templates/site/tpl_site/main/small_img/small_img.jpg', 'main'),
-(5, 'templates/site/tpl_site/default/default.tpl', 'default', '1', 'templates/site/tpl_site/default/small_img/small_img.jpg', 'default');
+(5, 'templates/site/tpl_site/default/default.tpl', 'default', '0', 'templates/site/tpl_site/default/small_img/small_img.jpg', 'default');
 
 -- --------------------------------------------------------
 
@@ -702,5 +711,5 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`name`, `adress`, `pass`, `id`, `id_user`) VALUES
-('admin', 'admin@mail', 'b07769b541f447c55b2d73be1b4fd1f4', 1, 1),
+('admin', 'admin@mail', 'c4ca4238a0b923820dcc509a6f75849b', 1, 1),
 ('Менаджер', 'test@mail.ru', 'c4ca4238a0b923820dcc509a6f75849b', 6, 4);

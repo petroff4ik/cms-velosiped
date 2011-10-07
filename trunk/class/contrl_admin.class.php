@@ -735,6 +735,22 @@ class contrl_admin extends add_contrl {
         $data['body'] = $this->view->view("templates/admin/catalog/catalog.tpl", $data, true);
         return $data;
     }
+	
+	protected function invdown($url){
+		$data['sys_info'] = $this->show_sys_info("ok");
+        $this->cache->removeP($this->_call_out_func("tree", "current_address2", $url[2]));
+        $this->set_message($this->model->invdown($url[1], $url[3]));
+        $this->relink(@$_SERVER['HTTP_REFERER']);
+        return $data;
+	}
+	
+	protected function invup($url){
+		$data['sys_info'] = $this->show_sys_info("ok");
+        $this->cache->removeP($this->_call_out_func("tree", "current_address2", $url[2]));
+        $this->set_message($this->model->invup($url[1], $url[3]));
+        $this->relink(@$_SERVER['HTTP_REFERER']);
+        return $data;
+	}
 
     /**
      * Start function, authorization, logging, select the language packs, updater

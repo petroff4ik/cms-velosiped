@@ -510,3 +510,7 @@ table.table3 td {padding: 1px 5px; height: 32px; color:#58595b; }
 	display:block;
 	margin-bottom: -8px;
 }
+
+#tbl_id td{
+	padding:3px;
+}

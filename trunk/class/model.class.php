@@ -477,6 +477,14 @@ class model {
 	function returnAllSide(){
 		return $this->db->result_array($this->db->query("SELECT templates.*,side_site.* FROM templates,side_site WHERE templates.id = side_site.id_template AND free =1 order by templates.name;"));
 	}
+	
+	function invdown($i,$i2){
+		return $this->db->query("UPDATE ns_doc SET sch = 0 WHERE id = ?",$i);
+	}
+	
+	function invup($i,$i2){
+		return $this->db->query("UPDATE ns_doc SET sch = 1 WHERE id = ?",$i);
+	}
 
     /* Clear db
       DELETE id_lang_text FROM   id_lang_text left join sys_info on sys_info.id_lang=id_lang_text.id WHERE sys_info.id_lang is null;
@@ -485,7 +493,9 @@ class model {
       TRUNCATE TABLE ns_tree;
       TRUNCATE TABLE tags_side;
       TRUNCATE TABLE tags_voc;
-      TRUNCATE TABLE `doc_view`;
+      TRUNCATE TABLE doc_view;
+	  TRUNCATE TABLE news;
+	  TRUNCATE TABLE gallery;
      */
 }
 
