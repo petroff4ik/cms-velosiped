@@ -147,7 +147,7 @@
 
 <br clear="all"/> <br/>
 
-<table  cellspacing="3"  >
+<table  cellspacing="3"  id="tbl_id">
     <tr bgcolor="#BDBDBD">
 
         <td>
@@ -171,8 +171,13 @@
 
 
         <td>
-            <a class="linkeditorid"  href="<?= $admin_dir_full; ?>changevector/<?= $idc; ?>/<?= $cur_lang; ?>/show_me/<?= $vector; ?>/<?= $pag; ?>/<?= urlencode($search); ?>/<?= $mod_order; ?>"><?= $edm_SH; ?></a>
+            <a class="linkeditorid"  href="<?= $admin_dir_full; ?>changevector/<?= $idc; ?>/<?= $cur_lang; ?>/show_me/<?= $vector; ?>/<?= $pag; ?>/<?= urlencode($search); ?>/<?= $mod_order; ?>"><img src="/templates/images/see_i.jpg" alt="<?= $edm_SH; ?>" title="<?= $edm_SH; ?>"/></a>
         </td>
+		
+		<td>
+            <a class="linkeditorid"  href="<?= $admin_dir_full; ?>changevector/<?= $idc; ?>/<?= $cur_lang; ?>/sch/<?= $vector; ?>/<?= $pag; ?>/<?= urlencode($search); ?>/<?= $mod_order; ?>"><img src="/templates/images/link.png" alt="<?= $edm_SH; ?>" title="<?= $edm_SH; ?>"/></a>
+        </td>
+		
 
         <td >
             <a class="linkeditorid"  href="<?= $admin_dir_full; ?>changevector/<?= $idc; ?>/<?= $cur_lang; ?>/side_for_doc/<?= $vector; ?>/<?= $pag; ?>/<?= urlencode($search); ?>/<?= $mod_order; ?>"><?= $edm_side; ?></a>
@@ -204,7 +209,7 @@
 							});
 						</script>
 						<form name="ns_doc_date"  action="<?= $admin_dir_full; ?>savedate/<?= $value['id']; ?>/" method="post">
-							<input class="ns_doc_date<?= $key; ?>" style="cursor:pointer" name="ns_doc_date" readonly="on" size="9" type="text" value="<?= $value['ns_doc_date']; ?>"><br />
+							<input class="ns_doc_date<?= $key; ?>" style="cursor:pointer" name="ns_doc_date" readonly="on" size="8" type="text" value="<?= $value['ns_doc_date']; ?>"><br />
 							<input style="margin-top:5px;margin-bottom:5px;" type="submit" value="<?= $edm_save; ?>">
 
 						</form>
@@ -248,16 +253,34 @@
 					<?
 					if (isset($value['show_me'])) {
 						if ($value['show_me']) {
-							echo'<a class="linkeditorid"  href="' . $admin_dir_full . 'hidedoc/' . $value['id'] . '/' . $idc . '/0">' . $edm_hide . '</a>';
-							echo'<span><b>' . $edm_show . '</b></span>';
+							echo'<a class="linkeditorid"  href="' . $admin_dir_full . 'hidedoc/' . $value['id'] . '/' . $idc . '/0"><img align="center" style="padding-left:4px;" alt="' . $edm_hide . '" src="/templates/images/see_i2.jpg" title="'.$edm_show.'"/></a>';
+
 						} else {
-							echo'<a class="linkeditorid"  href="' . $admin_dir_full . 'showdoc/' . $value['id'] . '/' . $idc . '/1">' . $edm_show . '</a>';
-							echo'<span ><b >' . $edm_hide . '</b></span>';
+							echo'<a class="linkeditorid"  href="' . $admin_dir_full . 'showdoc/' . $value['id'] . '/' . $idc . '/1"><img align="center" style="padding-left:4px;" alt="' . $edm_show . '" src="/templates/images/see_i2_n.jpg" title="'.$edm_hide.'"/> </a>';
+
 						}
 					}
 					;
 					?>
 
+				</td>
+				
+				<td>
+					<?
+					if (isset($value['sch']) && !$value['sch_n']) {
+						if ($value['sch']) {
+							echo'<a class="linkeditorid"  href="' . $admin_dir_full . 'invdown/' . $value['id'] . '/' . $idc . '/0"><img align="center" style="padding-left:4px;" alt="' . $l_inv_y . '" src="/templates/images/link16.png" title="'.$l_inv_y.'"/></a>';
+
+						} else {
+							echo'<a class="linkeditorid"  href="' . $admin_dir_full . 'invup/' . $value['id'] . '/' . $idc . '/1"><img align="center" style="padding-left:4px;" alt="' . $l_inv_n . '" src="/templates/images/link16_n.png" title="'.$l_inv_n.'"/> </a>';
+
+						}
+					}else{
+						echo "<img src='/templates/images/stop.png' title='{$l_inv_s}' alt='{$l_inv_s}'/>";
+					}
+					;
+					?>	
+					
 				</td>
 
 				<td >

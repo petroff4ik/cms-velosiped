@@ -46,9 +46,9 @@ class comment_model extends add_model_module {
     function insert($class, $ns_treeid, $post) {
         $res = $this->db->query("START TRANSACTION;");
         if (empty($post['int_id']))
-            $this->db->query("INSERT INTO ns_doc SET date=NOW(),father_id='" . $ns_treeid . "',show_me=1,module='" . $class . "', side_for_doc='module',mod_order='comm',mod_options='1';");
+            $this->db->query("INSERT INTO ns_doc SET date=NOW(),father_id='" . $ns_treeid . "',show_me=1,module='" . $class . "', side_for_doc='module',mod_order='comm',mod_options='1',sch_n=1;");
         else
-            $this->db->query("INSERT INTO ns_doc SET date=NOW(),father_id='" . $ns_treeid . "',show_me=1,module='" . $class . "', side_for_doc='module',mod_order='comm',mod_options='0';");
+            $this->db->query("INSERT INTO ns_doc SET date=NOW(),father_id='" . $ns_treeid . "',show_me=1,module='" . $class . "', side_for_doc='module',mod_order='comm',mod_options='0',sch_n=1;");
         $ns_doc = mysql_insert_id();
 
         $lastid = $this->returnLastId("+");
@@ -105,9 +105,9 @@ class comment_model extends add_model_module {
     function insert_front($post, $id_nstree,$ext_id) {
         $res = $this->db->query("START TRANSACTION;");
         if (empty($post['int_id']))
-            $this->db->query("INSERT INTO ns_doc SET date=NOW(),father_id='" . $id_nstree . "',show_me=1,module='comment', side_for_doc='module',mod_order='comm',mod_options='1'");
+            $this->db->query("INSERT INTO ns_doc SET date=NOW(),father_id='" . $id_nstree . "',show_me=1,module='comment', side_for_doc='module',mod_order='comm',mod_options='1',sch_n=1");
         else
-            $this->db->query("INSERT INTO ns_doc SET date=NOW(),father_id='" . $id_nstree . "',show_me=1,module='comment', side_for_doc='module',mod_order='comm',mod_options='0';");
+            $this->db->query("INSERT INTO ns_doc SET date=NOW(),father_id='" . $id_nstree . "',show_me=1,module='comment', side_for_doc='module',mod_order='comm',mod_options='0',sch_n=1;");
         $ns_doc = mysql_insert_id();
 
         $lastid = $this->returnLastId("+");
