@@ -37,8 +37,9 @@
 
 mode : "specific_textareas",
 editor_selector : "mceEditor",
-
-
+relative_urls : false,
+convert_urls : false,
+language : "<?=$GLOBALS['lang'];?>",
 theme : "advanced",
 plugins : "style,typograf,layer,table,advhr,advimage,advlink,emotions,iespell,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras",
 

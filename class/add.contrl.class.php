@@ -18,7 +18,7 @@ class add_contrl extends api {
             if (is_numeric($url[0]))
                 $result = $this->_call_out_func("tree_model", "GetInfoForLinkTreeById", $url[0]);
             else
-                $result=$this->_call_out_func("tree_model", "GetInfoForLinkTreeByName", $url[0]);
+                $result = $this->_call_out_func("tree_model", "GetInfoForLinkTreeByName", $url[0]);
 
             if (empty($result)) {
                 return $url;
@@ -138,23 +138,27 @@ class add_contrl extends api {
 
     function instal_module($path) {
         //exec( 'unzip -P ' . $password . ' ' . $fileZip . ' -d ' . $directory);.
-        if (file_exists($path)) {
-            $xml = simplexml_load_file($path);
-            chdir(SITE_DIR . "modules/");
-            mkdir(((string) $xml->module_info->name_class), 0777);
-            foreach ($xml->module_file->folder as $m_f) {
-                chdir(SITE_DIR . $m_f['path']);
-                mkdir($m_f);
-            }
+        try {
+            if (file_exists($path)) {
+                if($xml = simplexml_load_file($path))trigger_error ($this->lang['l_error_load_module']);
+                chdir(SITE_DIR . "modules/");
+                if(mkdir(((string) $xml->module_info->name_class), 0777))throw new Exception($this->lang['l_error_load_module_mkdir']);;
+                foreach ($xml->module_file->folder as $m_f) {
+                    chdir(SITE_DIR . $m_f['path']);
+                    mkdir($m_f);
+                }
 
-            foreach ($xml->module_file->file as $m_f) {
-                copy(SITE_DIR . "modules/upload/" . $m_f, SITE_DIR . $m_f['path'] . $m_f);
-                unlink(SITE_DIR . "modules/upload/" . $m_f);
+                foreach ($xml->module_file->file as $m_f) {
+                    copy(SITE_DIR . "modules/upload/" . $m_f, SITE_DIR . $m_f['path'] . $m_f);
+                    unlink(SITE_DIR . "modules/upload/" . $m_f);
+                }
+                unlink(SITE_DIR . "modules/upload/instal.xml");
+                $this->model->registry($xml->module_info->name_class, $xml->module_info->name_start_func, $xml->module_options->schedule, $xml->module_options->standby, $xml->module_options->side_schedule, $xml->module_options->side_standby, $xml->module_options->template_path, $xml->module_info->name_module, $xml->module_info->help->annotation);
+                if ($xml->module_database->attributes() == "on")
+                    $this->model->create_table($xml, $xml->module_database->db_name);
             }
-            unlink(SITE_DIR . "modules/upload/instal.xml");
-            $this->model->registry($xml->module_info->name_class, $xml->module_info->name_start_func, $xml->module_options->schedule, $xml->module_options->standby, $xml->module_options->side_schedule, $xml->module_options->side_standby, $xml->module_options->template_path, $xml->module_info->name_module, $xml->module_info->help->annotation);
-            if ($xml->module_database->attributes() == "on")
-                $this->model->create_table($xml, $xml->module_database->db_name);
+        } catch (Exception $e) {
+            $this->error($e);
         }
     }
 
@@ -487,7 +491,7 @@ class add_contrl extends api {
             foreach ($sch as $key => $value) {
                 $rl = $this->_call_out_func($value['module'], "_returnLink", $value['id'], $lang, mysql_real_escape_string(urldecode($search)), $mod_order);
                 if (is_array($rl))
-                    $data['sch'][] = array_merge($rl, array('namet' => $value['text'],'father_id_res'=>($value['father_id'])?$value['father_id']:NULL));
+                    $data['sch'][] = array_merge($rl, array('namet' => $value['text'], 'father_id_res' => ($value['father_id']) ? $value['father_id'] : NULL));
             }
         $data['inv'] = $this->model->getInvertor($id);
         $datas['all_doc'] = $this->model->returnLink($id, $order, $vector, $pag, mysql_real_escape_string(urldecode($search)), $mod_order);
