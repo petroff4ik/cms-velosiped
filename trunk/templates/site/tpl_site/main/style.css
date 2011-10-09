@@ -4,7 +4,7 @@
 }
 body {
 	font: 12px/18px Garamond, Arial, Tahoma, Verdana, sans-serif;
-	background-color:#ffcb85;
+	background-image:  url(/templates/site/tpl_site/main/images/fon_main.jpg);
 
 }
 a {
@@ -30,7 +30,7 @@ input {
 	background: #ffcb85 ;
 }
 #wrapper {
-	width: 800px;
+	width: 1000px;
 	margin: 0 auto;
 	min-height: 100%;
 	height: auto !important;
@@ -87,12 +87,14 @@ text-align:left;
 padding-top:10px;
 }
 
-#langmenua{color: #3a2514 ;
+#langmenua{
+color: #3a2514 ;
 font-family:Garamond;
 font-size:18px;
 text-align:left;
 display: block;
 margin-top:-10px;
+margin-left:40px;
 }
 
 #curlang{
@@ -103,6 +105,7 @@ text-align:left;
 display: block;
 margin-top:-10px;
 font-weight:bolder ;
+margin-left:40px;
 }
 
 #curmenu{
@@ -130,7 +133,7 @@ text-align:left;
 margin-top:20px;
 padding-top:20px;
 padding-bottom:20px;
-margin-left:-10px;
+margin-left:30px;
 }
 
 
@@ -140,26 +143,26 @@ margin-left:-10px;
 display: block;
 display: none;
 
-/* ссылка над всеми элементами */
+/* пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
 z-index: 999;
 
-/* ссылка не заслоняет полностью текст под ней */
+/* пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅ */
 opacity: .8;
 
-/* ссылка всегда на одном и том же месте */
+/* пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ */
 position: fixed;
 
-/* ссылка внизу страницы */
+/* пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
 top: 100%;
 margin-top: -80px; /* = height + preferred bottom margin */
 
-/* ссылка по центру */
+/* пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ */
 left: 80%;
 margin-left: -80px;
 
 
 
-/* ссылка большая, заметная и ее легко найти */
+/* пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ */
 
 line-height: 48px;
 height: 48px;

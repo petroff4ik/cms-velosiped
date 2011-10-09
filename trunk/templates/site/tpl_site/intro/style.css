@@ -8,7 +8,7 @@ html {
 body {
 	font: 12px/18px Garamond, Arial, Tahoma, Verdana, sans-serif;
 	height: 100%;
-	background-color:#20130a;
+	background-image:  url(/templates/site/tpl_site/intro/images/fon_intro.jpg);
 }
 a {
 	color: #ffb60f ;
@@ -19,7 +19,8 @@ a {
 	margin-left:30px;
 }
 
-#langmenua {font-size:18px;
+#langmenua {
+font-size:18px;
 margin-left:10px;
 }
 
@@ -45,7 +46,7 @@ input {
 }
 #header {
 	height: 50px;
-	background: #20130a;
+	background-image:  url(/templates/site/tpl_site/intro/images/fon_intro.jpg);
 }
 
 #menu {
@@ -55,19 +56,23 @@ clear:both;
 padding:10px;
 }
 
-#langmenu {width: 100%;
+#langmenu {
+width: 100%;
 text-align:center;
 clear:both;
 padding:10px;
 }
 
-#curlang{color: #ffb60f ;font-family:Garamond;
+#curlang{
+color: #ffb60f ;
+font-family:Garamond;
 font-size:21px;
 margin-left:10px;
 font-weight:bolder ;
 }
 
-#curmenu{	color: #ffb60f ;
+#curmenu{
+	color: #ffb60f ;
 	font-size:34px;
 	font-family:Garamond;
 	margin-left:30px;
