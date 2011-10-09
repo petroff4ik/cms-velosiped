@@ -3,11 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
-<<<<<<< .mine
--- Generation Time: Oct 09, 2011 at 08:38 PM
-=======
--- Generation Time: Oct 08, 2011 at 02:05 PM
->>>>>>> .r33
+-- Generation Time: Oct 09, 2011 at 08:50 PM
 -- Server version: 5.1.40
 -- PHP Version: 5.3.3
 
@@ -90,18 +86,11 @@ CREATE TABLE IF NOT EXISTS `doc_view` (
 -- Dumping data for table `doc_view`
 --
 
-<<<<<<< .mine
 INSERT INTO `doc_view` (`id`, `text_title`, `text`, `show_me_title`, `small_version`) VALUES
 (7, '68', '69', 0, 0),
 (8, '70', '71', 0, 0),
 (10, '76', '77', 0, 0),
 (13, '82', '83', 0, 0);
-=======
-INSERT INTO `doc_view` (`id`, `text_title`, `text`, `show_me_title`, `small_version`) VALUES
-(7, '68', '69', 0, 0),
-(8, '70', '71', 0, 0),
-(10, '76', '77', 1, 0);
->>>>>>> .r33
 
 -- --------------------------------------------------------
 
@@ -352,7 +341,6 @@ INSERT INTO `id_lang_text` (`id`, `text`, `lang`, `date`) VALUES
 (67, 'tag', 'ru', '2011-10-05 15:58:35'),
 (67, 'tag', 'en', '2011-10-05 15:58:35'),
 (67, 'tag', 'it', '2011-10-05 15:58:35'),
-<<<<<<< .mine
 (67, 'tag', 'ua', '2011-10-05 15:58:35'),
 (68, 'logo', 'ru', '2011-10-08 22:56:49'),
 (68, 'logo', 'en', '2011-10-08 22:57:19'),
@@ -435,49 +423,6 @@ INSERT INTO `id_lang_text` (`id`, `text`, `lang`, `date`) VALUES
 (5, 'Введіть текст з малюнка', 'ua', '2011-10-09 20:21:31'),
 (6, 'Відповідь на сообшеніе', 'ua', '2011-10-09 20:21:31'),
 (6, 'Risposta a tuo messaggio', 'it', '2011-10-09 20:21:31');
-=======
-(67, 'tag', 'ua', '2011-10-05 15:58:35'),
-(68, 'logo', 'ru', '2011-10-08 13:48:18'),
-(68, 'logo', 'en', '2011-10-08 13:48:18'),
-(68, 'logo', 'it', '2011-10-08 13:48:18'),
-(68, 'logo', 'ua', '2011-10-08 13:48:18'),
-(69, '<p>logo</p>', 'ru', '2011-10-08 13:48:18'),
-(69, '<p>logo</p>', 'en', '2011-10-08 13:48:18'),
-(69, '<p>logo</p>', 'it', '2011-10-08 13:48:18'),
-(69, '<p>logo</p>', 'ua', '2011-10-08 13:48:18'),
-(70, 'mini logo', 'ru', '2011-10-08 13:49:26'),
-(70, 'mini logo', 'en', '2011-10-08 13:49:26'),
-(70, 'mini logo', 'it', '2011-10-08 13:49:26'),
-(70, 'mini logo', 'ua', '2011-10-08 13:49:26'),
-(71, '<p>mini logo</p>', 'ru', '2011-10-08 13:49:26'),
-(71, '<p>mini logo</p>', 'en', '2011-10-08 13:49:26'),
-(71, '<p>mini logo</p>', 'it', '2011-10-08 13:49:26'),
-(71, '<p>mini logo</p>', 'ua', '2011-10-08 13:49:26'),
-(72, 'О нас', 'ru', '2011-10-08 13:57:46'),
-(72, 'About Us', 'en', '2011-10-08 13:57:46'),
-(72, 'Chi siamo', 'it', '2011-10-08 13:57:46'),
-(72, 'Про нас', 'ua', '2011-10-08 13:57:46'),
-(73, 'О нас', 'ru', '2011-10-08 13:57:46'),
-(73, 'About Us', 'en', '2011-10-08 13:57:46'),
-(73, 'Chi siamo', 'it', '2011-10-08 13:57:46'),
-(73, 'Про нас', 'ua', '2011-10-08 13:57:46'),
-(74, 'О нас - На этой странице вы найдете общую информацию о нашей пиццерии, ее историю создания и философию', 'ru', '2011-10-08 13:57:46'),
-(74, 'On this page you will find general information about our pizza, its history and philosophy of creating', 'en', '2011-10-08 13:57:46'),
-(74, 'In questa pagina troverete informazioni generali sulla nostra pizza, la sua storia e la filosofia di creare', 'it', '2011-10-08 13:57:46'),
-(74, 'На цій сторінці ви знайдете загальну інформацію про нашу піцерії, її історію створення та філософію', 'ua', '2011-10-08 13:57:46'),
-(75, 'tag', 'ru', '2011-10-08 13:57:46'),
-(75, 'tag', 'en', '2011-10-08 13:57:46'),
-(75, 'tag', 'it', '2011-10-08 13:57:46'),
-(75, 'tag', 'ua', '2011-10-08 13:57:46'),
-(76, 'О нас', 'ru', '2011-10-08 14:03:27'),
-(76, 'About Us', 'en', '2011-10-08 14:03:27'),
-(76, 'Chi siamo', 'it', '2011-10-08 14:03:27'),
-(76, 'Про нас', 'ua', '2011-10-08 14:03:27'),
-(77, '<p><span id="result_box" lang="ru"><span style="background-color: #ebeff9;" title="Сеньйор Помідор!!!">Сеньор Помидор!<br /></span><span title="Італійська Піцерія Сеньйор Помідор">Итальянская Пиццерия Сеньор Помидор<br /></span><span title="Піцерія...">Пиццерия ...<br /></span><span title="●	популярне місце, де є можливість поїсти, випити, та найважливіше - поспілкуватись, бо в нашому &bdquo;Помідорі&rdquo; панує домашня атмосфера.">●  популярное место, где есть возможность поесть, выпить, и самое важное -  пообщаться, потому что в нашем "Помидора" царит домашняя атмосфера. </span><span title="Тому навіть якщо Ви прийшли самі - Ви не засумуєте, звісно, якщо Вам цього не захочеться">Поэтому даже если вы пришли сами - Вы не соскучишься, конечно, если Вам этого не захочется<br /><br /></span><span title="Чому &bdquo;Сеньйор Помідор&rdquo;?">Почему "Сеньор Помидор"?<br /></span><span title="●	У італійців дуже поважне ставлення до цього овочу.">● У итальянцев очень уважительное отношение к этому овощу. </span><span title="Велика кількість страв робиться саме з додаванням до них помідорів.">Большое количество блюд делается именно с добавлением к ним помидоров. </span><span title="У цьому випадку нам треба брати приклад з італійців, бо це єдиний овоч, який після теплової обробки не втрачає вітаміну С, який в свою чергу, допомагає нашому організму виробляти речовину &ndash; серотонін, яка ще називається гормоном &bdquo;щастя&rdquo;.">В  этом случае нам надо брать пример с итальянцев, потому что это  единственный овощ, который после тепловой обработки не теряет витамина  С, который в свою очередь, помогает нашему организму вырабатывать  вещество - серотонин, который еще называется гормоном "счастья". </span><span title="І саме тому, в нашому &bdquo;Помідорі&rdquo; усі такі щасливі!">И именно поэтому, в нашем "Помидора" все такие счастливые!<br /><br /></span><span title="Піца">Пицца<br /></span><span title="●	Це символ Середземномор`я!">● Это символ Средиземноморья! </span><span title="Легенда розповідає, що піца &ndash; це партенопський рецепт, який вигадали у Неаполі у 1889 році.">Легенда рассказывает, что пицца - это партенопський рецепт, который придумали в Неаполе в 1889 году. </span><span title="Перший раз була приготовлена Рафаелем Еспозіто на честь королеви Маргарити.">Первый раз была приготовлена ​​Рафаэлем Эспозито в честь королевы Маргариты. </span><span title="В принципі, щоб задовольнити її Величність, він взяв звичайний шматок тіста, зробивши його тоненьким, круглої форми, потім додав помідорний соус, смачну моцареллу та декілька листиків базиліка.">В  принципе, чтобы удовлетворить ее Величество, он взял обычный кусок  теста, сделав его тоненьким, круглой формы, потом добавил помидорный  соус, вкусную моцареллу и несколько листиков базилика.<br /></span><span title="Відправив все у піч, і коли краєчок набув золотистого кольору, ще палаючою подав королеві.">Отправил все в печь, и когда краешек приобрел золотистый цвет, еще горящей подал королю. </span><span title="Блюдо їй дуже сподобалось і вона спитала у пекаря як зветься цей тип хліба.">Блюдо ей очень понравилось и она спросила у пекаря как называется этот тип хлеба. </span><span title="Він відповів: &laquo;О моя королева!">Он ответил: &laquo;О моя королева! </span><span title="Цей незвичайний хліб з моцареллою, помідором та базиліком відтворює кольори італійського прапору і на Вашу честь зветься &laquo;Піца Маргарита&raquo;.">Этот  необычный хлеб с моцареллой, помидором и базиликом воспроизводит цвета  итальянского флага и в Вашу честь зовется &laquo;Пицца Маргарита&raquo;. </span><span title="Так народилася піца, яку з часом пекарі та кухарі збагатили й іншими інгредієнтами.">Так родилась пицца, которую со временем пекари и повара обогатили и другими ингредиентами.<br /></span><span title="●	Філософ Платон вказував на неї як на здорову страву ( і зараз, дієтологи рекомендують її як їжу легку та ...радісну!)">● Философ Платон указывал на нее как на здоровую блюдо (и сейчас, диетологи рекомендуют ее как пищу легкую и ... радостную!)<br /><br /></span><span title="Італійська кухня">Итальянская кухня<br /></span><span title="●	Може бути створена ТІЛЬКИ італійським шеф-кухарем">● Может быть создана ТОЛЬКО итальянским шеф-поваром<br /><br /></span><span title="Паста">Паста<br /></span><span title="●	Це не тільки спагеті Карбонара та Болоньєз">● Это не только спагетти Карбонара и Болоньез<br /></span><span title="●	від неї не повнішають, і це не жарт, бо складні вуглеводи засвоюються з часом, і тому не створюють надлишків енергії">● от нее не полнеют, и это не шутка, потому сложные углеводы усваиваются со временем, и поэтому не создают излишков энергии<br /><br /></span><span title="&bdquo;Аль денте&rdquo;">"Аль денте"<br /></span><span title="●	Це не &bdquo;недоварені макарони&rdquo;, а правильно приготована паста">● Это не "недоваренные макароны", а правильно приготовленная паста<br /><br /></span><span title="Домашня паста">Домашняя паста<br /></span><span title="●	предмет особливої гордості &bdquo;Сеньйора Помідора&rdquo;">● предмет особой гордости "Сеньора Помидора"<br /></span><span title="●	те, що треба спробувати у &bdquo;Помідорі&rdquo;">● то, что надо попробовать в "Помидора"<br /></span><span title="●	те, що навряд чи Ви зумієте приготувати у себе вдома">● том, что вряд ли вы сумеете приготовить у себя дома<br /><br /></span><span title="Різотто">Ризотто<br /></span><span title="●	це знову, зовсім не &bdquo;недоварений рис&rdquo;">● это снова, совсем не "недоваренный рис"<br /></span><span title="●	традиційно готується тільки з італійського рису">● традиционно готовится только из итальянского риса</span></span></p>', 'ru', '2011-10-08 14:03:27'),
-(77, '<p><span id="result_box" lang="en"><span title="Сеньор Помидор!">Senor Tomato!<br /></span><span title="Итальянская Пиццерия Сеньор Помидор">Italian Tomato Pizza Senor<br /></span><span title="Пиццерия ...">Pizza ...<br /></span><span title="● популярное место, где есть возможность поесть, выпить, и самое важное - пообщаться, потому что в нашем &quot;Помидора&quot; царит домашняя атмосфера.">●  popular place where it is possible to eat, drink, and most importantly -  to communicate, because in our "Tomato," a homely atmosphere. </span><span title="Поэтому даже если вы пришли сами - Вы не соскучишься, конечно, если Вам этого не захочется">So even if you came to do - you do not get bored, of course, if you do not want to<br /><br /></span><span title="Почему &quot;Сеньор Помидор&quot;?">Why "Senor Tomato"?<br /></span><span title="● У итальянцев очень уважительное отношение к этому овощу.">● The Italians are very respectful to this vegetable. </span><span title="Большое количество блюд делается именно с добавлением к ним помидоров.">A large number of dishes is done with the addition of tomatoes. </span><span title="В этом случае нам надо брать пример с итальянцев, потому что это единственный овощ, который после тепловой обработки не теряет витамина С, который в свою очередь, помогает нашему организму вырабатывать вещество - серотонин, который еще называется гормоном &quot;счастья&quot;.">In  this case, we must look to the Italians, because it is the only  vegetable that heat treatment does not lose vitamin C, which in turn  helps our bodies produce substances - serotonin, a hormone which is also  called "Happiness." </span><span title="И именно поэтому, в нашем &quot;Помидора&quot; все такие счастливые!">And that is why, in our "Tomato" all so happy!<br /><br /></span><span title="Пицца">Pizza<br /></span><span title="● Это символ Средиземноморья!">● This symbol Mediterranean! </span><span title="Легенда рассказывает, что пицца - это партенопський рецепт, который придумали в Неаполе в 1889 году.">Legend has it that the pizza - it partenopsky recipe that was invented in Naples in 1889. </span><span title="Первый раз была приготовлена Рафаэлем Эспозито в честь королевы Маргариты.">The first time was prepared by Raphael Esposito in honor of Queen Margherita. </span><span title="В принципе, чтобы удовлетворить ее Величество, он взял обычный кусок теста, сделав его тоненьким, круглой формы, потом добавил помидорный соус, вкусную моцареллу и несколько листиков базилика.">In  principle, to satisfy her Majesty, he took an ordinary piece of dough,  making it thin, round shape, then added tomato sauce, mozzarella and a  tasty basil leaves a few.<br /></span><span title="Отправил все в печь, и когда краешек приобрел золотистый цвет, еще горящей подал королю.">Posted by all in the oven, and when the edge of the acquired gold, still burning submitted to the king. </span><span title="Блюдо ей очень понравилось и она спросила у пекаря как называется этот тип хлеба.">The dish she really liked it and she asked the baker how is this type of bread. </span><span title="Он ответил: &laquo;О моя королева!">He replied, "Oh my queen! </span><span title="Этот необычный хлеб с моцареллой, помидором и базиликом воспроизводит цвета итальянского флага и в Вашу честь зовется &laquo;Пицца Маргарита&raquo;.">This  unusual bread with mozzarella, tomato and basil reproduces colors of  the Italian flag in your honor called the "Pizza Margherita." </span><span title="Так родилась пицца, которую со временем пекари и повара обогатили и другими ингредиентами.">Thus was born the pizza, which over time bakers and cooks have enriched and other ingredients.<br /></span><span title="● Философ Платон указывал на нее как на здоровую блюдо (и сейчас, диетологи рекомендуют ее как пищу легкую и ... радостную!)">● The philosopher Plato pointed to it as a healthy meal (and now, nutritionists recommend eating it as easy and happy ...!)<br /><br /></span><span title="Итальянская кухня">Italian Food<br /></span><span title="● Может быть создана ТОЛЬКО итальянским шеф-поваром">● Can only be created by Italian chef<br /><br /></span><span title="Паста">Pasta<br /></span><span title="● Это не только спагетти Карбонара и Болоньез">● This is not just spaghetti carbonara and Bolognese<br /></span><span title="● от нее не полнеют, и это не шутка, потому сложные углеводы усваиваются со временем, и поэтому не создают излишков энергии">●  do not get fat from it, and it''s not a joke, because complex  carbohydrates are assimilated over time, and therefore do not create a  surplus of energy<br /><br /></span><span title="&quot;Аль денте&quot;">"Al dente"<br /></span><span title="● Это не &quot;недоваренные макароны&quot;, а правильно приготовленная паста">● It is not "undercooked pasta", and properly cooked pasta<br /><br /></span><span title="Домашняя паста">Homemade pasta<br /></span><span title="● предмет особой гордости &quot;Сеньора Помидора&quot;">● a source of pride "Senora Tomato"<br /></span><span title="● то, что надо попробовать в &quot;Помидора&quot;">● what we should try to "Tomato"<br /></span><span title="● том, что вряд ли вы сумеете приготовить у себя дома">● that it is unlikely you will be able to cook at home<br /><br /></span><span title="Ризотто">Risotto<br /></span><span title="● это снова, совсем не &quot;недоваренный рис&quot;">● it again, not "half-cooked rice ''<br /></span><span title="● традиционно готовится только из итальянского риса">● traditionally prepared only from an Italian rice</span></span></p>', 'en', '2011-10-08 14:03:27'),
-(77, '<p><span id="result_box"><span style="background-color: #ffffff;" title="Сеньор Помидор!">Pomodoro Senor! <br /></span><span style="background-color: #ffffff;" title="Итальянская Пиццерия Сеньор Помидор">Pizza pomodoro italiano Senor <br /></span><span style="background-color: #ffffff;" title="Пиццерия ...">Pizza ... <br /></span><span style="background-color: #ffffff;" title="● популярное место, где есть возможность поесть, выпить, и самое важное - пообщаться, потому что в нашем &quot;Помидора&quot; царит домашняя атмосфера.">●  popolare luogo dove &egrave; possibile mangiare, bere, e soprattutto - di  comunicare, perch&eacute; nel nostro "Pomodoro", un ambiente familiare. </span><span title="Поэтому даже если вы пришли сами - Вы не соскучишься, конечно, если Вам этого не захочется">Quindi, anche se siete venuti a fare - non si annoia, naturalmente, se non si vuole <br /> <br /></span><span style="background-color: #ffffff;" title="Почему &quot;Сеньор Помидор&quot;?">Perch&eacute; "Senor pomodoro"? <br /></span><span style="background-color: #ffffff;" title="● У итальянцев очень уважительное отношение к этому овощу.">● Gli italiani sono molto rispettoso di questo ortaggio. </span><span title="Большое количество блюд делается именно с добавлением к ним помидоров.">Un gran numero di piatti &egrave; fatto con l''aggiunta di pomodori. </span><span style="background-color: #ffffff;" title="В этом случае нам надо брать пример с итальянцев, потому что это единственный овощ, который после тепловой обработки не теряет витамина С, который в свою очередь, помогает нашему организму вырабатывать вещество - серотонин, который еще называется гормоном &quot;счастья&quot;.">In  questo caso, dobbiamo guardare agli italiani, perch&eacute; &egrave; l''unico ortaggio  che il trattamento termico non perde la vitamina C, che a sua volta  aiuta il nostro organismo produce sostanze - ". Felicit&agrave;" serotonina, un  ormone che viene anche chiamata </span><span title="И именно поэтому, в нашем &quot;Помидора&quot; все такие счастливые!">Ed &egrave; per questo, nel nostro "pomodoro" tutti cos&igrave; felice! <br /> <br /></span><span title="Пицца">Pizza <br /></span><span title="● Это символ Средиземноморья!">● Il simbolo del Mediterraneo! </span><span style="background-color: #ffffff;" title="Легенда рассказывает, что пицца - это партенопський рецепт, который придумали в Неаполе в 1889 году.">La leggenda vuole che la pizza - ha partenopsky ricetta che &egrave; stata inventata a Napoli nel 1889. </span><span title="Первый раз была приготовлена Рафаэлем Эспозито в честь королевы Маргариты.">La prima volta &egrave; stata preparata da Raffaello Esposito in onore della regina Margherita. </span><span title="В принципе, чтобы удовлетворить ее Величество, он взял обычный кусок теста, сделав его тоненьким, круглой формы, потом добавил помидорный соус, вкусную моцареллу и несколько листиков базилика.">In  linea di principio, per soddisfare Sua Maest&agrave;, ha preso un normale  pezzo di pasta, rendendolo sottile, forma rotonda, salsa di pomodoro poi  aggiunto, mozzarella e basilico gustoso lascia pochi. <br /></span><span title="Отправил все в печь, и когда краешек приобрел золотистый цвет, еще горящей подал королю.">Inviato da tutti nel forno, e quando il bordo dell''oro acquisito, brucia ancora presentato al re. </span><span title="Блюдо ей очень понравилось и она спросила у пекаря как называется этот тип хлеба.">Il piatto che &egrave; piaciuto molto e lei ha chiesto al fornaio come &egrave; questo tipo di pane. </span><span title="Он ответил: &laquo;О моя королева!">Egli rispose: "Oh, mia regina! </span><span title="Этот необычный хлеб с моцареллой, помидором и базиликом воспроизводит цвета итальянского флага и в Вашу честь зовется &laquo;Пицца Маргарита&raquo;.">Questo  pane insolito con mozzarella, pomodoro e basilico riproduce i colori  della bandiera italiana in tuo onore chiamato "Pizza Margherita". </span><span title="Так родилась пицца, которую со временем пекари и повара обогатили и другими ингредиентами.">Cos&igrave; &egrave; nata la pizza, che nel tempo i panettieri ei cuochi hanno arricchito e altri ingredienti. <br /></span><span title="● Философ Платон указывал на нее как на здоровую блюдо (и сейчас, диетологи рекомендуют ее как пищу легкую и ... радостную!)">● Il filosofo Platone indicava come un pasto sano (e ora, nutrizionisti consigliano di mangiare il pi&ugrave; semplice e felice ...!) <br /> <br /></span><span title="Итальянская кухня">Alimentare italiana <br /></span><span title="● Может быть создана ТОЛЬКО итальянским шеф-поваром">● Possono essere creati solo da chef italiano <br /> <br /></span><span style="background-color: #ffffff;" title="Паста">Pasta <br /></span><span title="● Это не только спагетти Карбонара и Болоньез">● Questo non &egrave; solo spaghetti alla carbonara e bolognese <br /></span><span style="background-color: #ffffff;" title="● от нее не полнеют, и это не шутка, потому сложные углеводы усваиваются со временем, и поэтому не создают излишков энергии">●  non ingrassare da esso, e non &egrave; uno scherzo, perch&eacute; i carboidrati  complessi vengono assimilati nel corso del tempo, e quindi non si crea  un surplus di energia <br /> <br /></span><span title="&quot;Аль денте&quot;">"Al dente" <br /></span><span style="background-color: #ffffff;" title="● Это не &quot;недоваренные макароны&quot;, а правильно приготовленная паста">● Non &egrave; "pasta cotta", e la pasta cotta <br /> <br /></span><span title="Домашняя паста">Pasta fatta in casa <br /></span><span style="background-color: #ffffff;" title="● предмет особой гордости &quot;Сеньора Помидора&quot;">● "Pomodoro Senora" una fonte di orgoglio <br /></span><span style="background-color: #ffffff;" title="● то, что надо попробовать в &quot;Помидора&quot;">● che cosa dovremmo cercare di "Pomodoro" <br /></span><span style="background-color: #ffffff;" title="● том, что вряд ли вы сумеете приготовить у себя дома">● che &egrave; improbabile che sar&agrave; in grado di cucinare a casa <br /> <br /></span><span title="Ризотто">Risotto <br /></span><span title="● это снова, совсем не &quot;недоваренный рис&quot;">● di nuovo, non "a met&agrave; cottura il riso '' <br /></span><span style="background-color: #ffffff;" title="● традиционно готовится только из итальянского риса">● tradizionalmente preparato solo da un riso italiano</span></span></p>', 'it', '2011-10-08 14:03:27'),
-(77, '<p><span id="result_box" lang="uk"><span title="Сеньор Помидор!">Сеньйор Помідор!<br /></span><span title="Итальянская Пиццерия Сеньор Помидор">Італійська Піцерія Сеньйор Помідор<br /></span><span title="Пиццерия ...">Піцерія ...<br /></span><span title="● популярное место, где есть возможность поесть, выпить, и самое важное - пообщаться, потому что в нашем &quot;Помидора&quot; царит домашняя атмосфера.">●  популярне місце, де є можливість поїсти, випити, і найважливіше -  поспілкуватися, бо в нашому "Помідора" панує домашня атмосфера. </span><span title="Поэтому даже если вы пришли сами - Вы не соскучишься, конечно, если Вам этого не захочется">Тому навіть якщо ви прийшли самі - Ви не засумуєш, звичайно, якщо Вам цього не захочеться<br /><br /></span><span title="Почему &quot;Сеньор Помидор&quot;?">Чому "Сеньйор Помідор"?<br /></span><span title="● У итальянцев очень уважительное отношение к этому овощу.">● У італійців дуже шанобливе ставлення до цього овочу. </span><span title="Большое количество блюд делается именно с добавлением к ним помидоров.">Велика кількість страв робиться саме з додаванням до них помідорів. </span><span title="В этом случае нам надо брать пример с итальянцев, потому что это единственный овощ, который после тепловой обработки не теряет витамина С, который в свою очередь, помогает нашему организму вырабатывать вещество - серотонин, который еще называется гормоном &quot;счастья&quot;.">У  цьому випадку нам треба брати приклад з італійців, тому що це єдиний  овоч, який після теплової обробки не втрачає вітаміну С, який в свою  чергу, допомагає нашому організму виробляти речовину - серотонін, який  ще називається гормоном "щастя". </span><span title="И именно поэтому, в нашем &quot;Помидора&quot; все такие счастливые!">І саме тому, в нашому "Помідора" всі такі щасливі!<br /><br /></span><span title="Пицца">Піца<br /></span><span title="● Это символ Средиземноморья!">● Це символ Середземномор''я! </span><span title="Легенда рассказывает, что пицца - это партенопський рецепт, который придумали в Неаполе в 1889 году.">Легенда розповідає, що піца - це партенопській рецепт, який придумали в Неаполі в 1889 році. </span><span title="Первый раз была приготовлена Рафаэлем Эспозито в честь королевы Маргариты.">Перший раз була приготовлена ​​Рафаелем Еспозіто на честь королеви Маргарити. </span><span title="В принципе, чтобы удовлетворить ее Величество, он взял обычный кусок теста, сделав его тоненьким, круглой формы, потом добавил помидорный соус, вкусную моцареллу и несколько листиков базилика.">В  принципі, щоб задовольнити її Величність, він узяв звичайний шматок  тіста, зробивши його тоненьким, круглої форми, потім додав помідорний  соус, смачну моцарелу і кілька листочків базиліка.<br /></span><span title="Отправил все в печь, и когда краешек приобрел золотистый цвет, еще горящей подал королю.">Відправив все в піч, і коли краєчок придбав золотистий колір, ще палаючої подав королю. </span><span title="Блюдо ей очень понравилось и она спросила у пекаря как называется этот тип хлеба.">Блюдо їй дуже сподобалося і вона запитала в пекаря як називається цей тип хліба. </span><span title="Он ответил: &laquo;О моя королева!">Він відповів: &laquo;О моя королева! </span><span title="Этот необычный хлеб с моцареллой, помидором и базиликом воспроизводит цвета итальянского флага и в Вашу честь зовется &laquo;Пицца Маргарита&raquo;.">Цей  незвичайний хліб з моцарелою, помідором і базиліком відтворює кольори  італійського прапора і на Вашу честь зветься &laquo;Піца Маргарита&raquo;. </span><span title="Так родилась пицца, которую со временем пекари и повара обогатили и другими ингредиентами.">Так народилася піца, яку з часом пекарі та кухарі збагатили і іншими інгредієнтами.<br /></span><span title="● Философ Платон указывал на нее как на здоровую блюдо (и сейчас, диетологи рекомендуют ее как пищу легкую и ... радостную!)">● Філософ Платон вказував на неї як на здорову блюдо (і зараз, дієтологи рекомендують її як їжу легку і ... радісну!)<br /><br /></span><span title="Итальянская кухня">Італійська кухня<br /></span><span title="● Может быть создана ТОЛЬКО итальянским шеф-поваром">● Може бути створена ТІЛЬКИ італійським шеф-кухарем<br /><br /></span><span title="Паста">Паста<br /></span><span title="● Это не только спагетти Карбонара и Болоньез">● Це не тільки спагетті Карбонара і Болоньез<br /></span><span title="● от нее не полнеют, и это не шутка, потому сложные углеводы усваиваются со временем, и поэтому не создают излишков энергии">● від неї не повніють, і це не жарт, тому складні вуглеводи засвоюються з часом, і тому не створюють надлишків енергії<br /><br /></span><span title="&quot;Аль денте&quot;">"Аль денте"<br /></span><span title="● Это не &quot;недоваренные макароны&quot;, а правильно приготовленная паста">● Це не "недоварені макарони", а правильно приготована паста<br /><br /></span><span title="Домашняя паста">Домашня паста<br /></span><span title="● предмет особой гордости &quot;Сеньора Помидора&quot;">● предмет особливої ​​гордості "Сеньйора Помідора"<br /></span><span title="● то, что надо попробовать в &quot;Помидора&quot;">● те, що треба спробувати в "Помідора"<br /></span><span title="● том, что вряд ли вы сумеете приготовить у себя дома">● те, що навряд чи ви зумієте приготувати у себе вдома<br /><br /></span><span title="Ризотто">Різотто<br /></span><span title="● это снова, совсем не &quot;недоваренный рис&quot;">● це знову, зовсім не "недоварений рис"<br /></span><span title="● традиционно готовится только из итальянского риса">● традиційно готується тільки з італійського рису</span></span></p>', 'ua', '2011-10-08 14:03:27');
->>>>>>> .r33
 
 -- --------------------------------------------------------
 
@@ -625,17 +570,12 @@ CREATE TABLE IF NOT EXISTS `ns_doc` (
   PRIMARY KEY (`id`),
   KEY `father_id` (`father_id`),
   KEY `module` (`module`)
-<<<<<<< .mine
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
-=======
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
->>>>>>> .r33
 
 --
 -- Dumping data for table `ns_doc`
 --
 
-<<<<<<< .mine
 INSERT INTO `ns_doc` (`id`, `date`, `father_id`, `show_me`, `module`, `side_for_doc`, `children_id`, `mod_order`, `mod_group`, `mod_options`, `sch`, `types`, `sch_n`, `prew_id`) VALUES
 (1, '2011-10-05 15:12:46', 1, 1, 'lang', 'module', 0, '', 0, 0, 1, '', 0, 0),
 (2, '2011-10-05 15:13:07', 1, 1, 'tree', 'module', 0, '', 0, 0, 1, '', 0, 0),
@@ -649,18 +589,6 @@ INSERT INTO `ns_doc` (`id`, `date`, `father_id`, `show_me`, `module`, `side_for_
 (11, '2011-10-09 00:00:00', 6, 1, 'comment', 'body', 0, 'comm', 0, 0, 0, 'form', 0, 0),
 (12, '2011-10-09 20:00:04', 4, 1, 'tags', 'module', 0, '', 0, 0, 0, '', 0, 0),
 (13, '2011-10-09 20:10:38', 4, 1, 'dv', 'body', 0, '', 0, 0, 0, '', 0, 0);
-=======
-INSERT INTO `ns_doc` (`id`, `date`, `father_id`, `show_me`, `module`, `side_for_doc`, `children_id`, `mod_order`, `mod_group`, `mod_options`, `sch`, `types`, `sch_n`, `prew_id`) VALUES
-(1, '2011-10-05 15:12:46', 1, 1, 'lang', 'module', 0, '', 0, 0, 1, '', 0, 0),
-(2, '2011-10-05 15:13:07', 1, 1, 'tree', 'module', 0, '', 0, 0, 1, '', 0, 0),
-(3, '2011-10-05 15:38:49', 1, 1, 'tags', 'module', 0, '', 0, 0, 0, '', 0, 0),
-(7, '2011-10-08 13:48:18', 1, 1, 'dv', 'logo', 0, '', 0, 0, 0, '', 0, 0),
-(5, '2011-10-05 15:54:17', 2, 1, 'news', 'body', 0, '', 0, 0, 0, '', 0, 0),
-(6, '2011-10-05 15:58:35', 2, 1, 'tags', 'module', 0, '', 0, 0, 0, '', 0, 0),
-(8, '2011-10-08 13:49:26', 1, 1, 'dv', 'mini_logo', 0, '', 0, 0, 1, '', 0, 0),
-(9, '2011-10-08 13:57:46', 4, 1, 'tags', 'module', 0, '', 0, 0, 0, '', 0, 0),
-(10, '2011-10-08 14:03:27', 4, 1, 'dv', 'body', 0, '', 0, 0, 0, '', 0, 0);
->>>>>>> .r33
 
 -- --------------------------------------------------------
 
@@ -902,11 +830,7 @@ CREATE TABLE IF NOT EXISTS `tags_voc` (
   `pid` int(11) NOT NULL,
   PRIMARY KEY (`idtv`),
   KEY `id_doc` (`id_doc`)
-<<<<<<< .mine
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
-=======
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
->>>>>>> .r33
 
 --
 -- Dumping data for table `tags_voc`
@@ -920,7 +844,6 @@ INSERT INTO `tags_voc` (`idtv`, `id_doc`, `type`, `pid`) VALUES
 (5, 64, 'tags_title', 6),
 (6, 65, 'tags_metakey', 6),
 (7, 66, 'tags_metadescr', 6),
-<<<<<<< .mine
 (8, 67, 'tags_tags', 6),
 (9, 72, 'tags_title', 9),
 (10, 73, 'tags_metakey', 9),
@@ -930,13 +853,6 @@ INSERT INTO `tags_voc` (`idtv`, `id_doc`, `type`, `pid`) VALUES
 (14, 79, 'tags_metakey', 12),
 (15, 80, 'tags_metadescr', 12),
 (16, 81, 'tags_tags', 12);
-=======
-(8, 67, 'tags_tags', 6),
-(9, 72, 'tags_title', 9),
-(10, 73, 'tags_metakey', 9),
-(11, 74, 'tags_metadescr', 9),
-(12, 75, 'tags_tags', 9);
->>>>>>> .r33
 
 -- --------------------------------------------------------
 
