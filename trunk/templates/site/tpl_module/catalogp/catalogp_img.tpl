@@ -7,38 +7,36 @@
 </script>
 <div align="center">
 	<? foreach ($branch as $key => $value): ?>
-		<span class="cmenu" idn="<?= $key; ?>" style="float:left;margin:10px;font-size:14px;cursor:pointer;"><b><?= $value['text']; ?></b></span>
+		<span class="cmenu" idn="<?= $key; ?>" style="float:left;margin:10px;font-size:28px;cursor:pointer;"><b><?= $value['text']; ?></b></span>
 	<? endforeach; ?>
 	<div class="clear"/>
 
 	<br /><br />
-	<table border="0" width="600px" style="margin-top:50px;">
+	<table border="0" width="400px" style="margin-top:50px;">
 		<? foreach ($branch as $key => $value): ?>
 			<tr>
-				<td colspan="2" align="center"> <br /><br />
+				<td colspan="3" align="center"> <br /><br />
 					<span id="n<?= $key; ?>" style="margin:10px;font-size:23px;"><b><?= $value['text']; ?></b></span> <br /><br />
 				</td>
 			</tr>
 		<?foreach ($element as $keyE => $valueE):?>
 				<? if ($valueE['pid'] == $value['idcp']): ?>
 					<tr>
-						<td  align="left" valign="top">
+						<td rowspan="2" width="100px" height="100px">
+							<img style="cursor:pointer;margin-right:10px;" class="img_icon" width="100" height="100" file_name="<?= $value['file_name']; ?>" path="orgin" cat="<?= $value['father_id']; ?>" src="/<?= $GLOBALS['lang']; ?>/catalogp/open?file_name=<?= $value['file_name']; ?>&path=thumb&cat=<?= $value['father_id']; ?>" alt="img"/>
+						</td>
+						
+						<td align="left" >
 							<b><?= $valueE['name'];?></b>
 						</td>
 						
-						<td align="right" valign="top">
-							<?= $valueE['addi'];?>
+						<td align="left"><b><?= $valueE['descr']; ?></b>
 						</td>
-						
-						
 						
 					</tr>
 
 					<tr>
-						<td  align="left"><?= $valueE['descr']; ?>
-						</td>
-						<td align="right" >
-							
+						<td colspan="2" align="left"><?= $valueE['addi'];?>
 						</td>
 					</tr>
 				<? endif; ?>
