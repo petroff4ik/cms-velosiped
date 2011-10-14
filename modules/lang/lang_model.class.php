@@ -42,6 +42,14 @@ class lang_model extends add_model_module {
     function get_default_lang() {
         return $this->db->row_array($this->db->query("SELECT * FROM lang WHERE default_lang !='';"));
     }
+	
+	function get_all_field(){
+		return $this->db->result_array($this->db->query("SELECT * FROM id_lang_text order by id;"));
+	}
+	
+	function insert_spec($trans,$lang,$id){
+		$this->db->query("INSERT INTO `id_lang_text` (`id`, `text`, `lang`, `date`) VALUES ({$id}, '{$trans}', '{$lang}', NOW());");	
+	}
 
 }
 

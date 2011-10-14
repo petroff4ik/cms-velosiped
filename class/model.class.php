@@ -490,6 +490,7 @@ class model {
       DELETE id_lang_text FROM   id_lang_text left join sys_info on sys_info.id_lang=id_lang_text.id WHERE sys_info.id_lang is null;
       TRUNCATE TABLE catalogp;
       TRUNCATE TABLE ns_doc;
+	 
       TRUNCATE TABLE ns_tree;
       TRUNCATE TABLE tags_side;
       TRUNCATE TABLE tags_voc;
