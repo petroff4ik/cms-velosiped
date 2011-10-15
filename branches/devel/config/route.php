@@ -1,9 +1,0 @@
-<?
-/*
-$routes['dv/id/(:any)']="dv/id/$1";
-$routes['dv/show/(:any)']="dv/show/$1";
-$routes['dv/(:any)']="dv/id/$1";
-$routes['tags/(:any)']="tags/show/$1";
-$routes['tags/show/(:any)']="tags/show/$1";
-*/
-?>

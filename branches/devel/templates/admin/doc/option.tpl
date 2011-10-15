@@ -1,3 +1,0 @@
-
- <OPTION value='<?=$id;?>'><?=$name;?>
-
