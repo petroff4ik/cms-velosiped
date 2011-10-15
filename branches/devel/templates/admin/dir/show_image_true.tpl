@@ -1,0 +1,1 @@
+<img src="<?=$path;?>/templates/images/see.jpg">
