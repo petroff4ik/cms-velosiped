@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+<template_info>
+	<instal_file_name>instal.xml</instal_file_name>
+	<name_project>intro</name_project>
+	<path_small_img>templates/site/tpl_site/intro/small_img/small_img.jpg</path_small_img>
+	<path_file>templates/site/tpl_site/intro/intro.tpl</path_file>
+    <name_template>intro</name_template>
+</template_info>
+
+<template_file>
+	<folder path="templates/site/tpl_site/intro/">small_img</folder>
+	<folder path="templates/site/tpl_site/intro/">images</folder>
+	<file path="templates/site/tpl_site/intro/images/">1.jpg</file>
+	<file path="templates/site/tpl_site/intro/">intro.tpl</file>
+	<file path="templates/site/tpl_site/intro/small_img/">small_img.jpg</file>
+</template_file>
+
+<template_options>
+	<side>body</side>
+	<side>lang</side>
+	<side>title</side>
+	<show_me>0</show_me>
+</template_options>
+</template>
+
+

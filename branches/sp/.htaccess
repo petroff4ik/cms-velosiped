@@ -1,0 +1,13 @@
+php_flag magic_quotes_gpc 0
+php_flag magic_quotes_runtime 0
+RewriteEngine On
+RewriteRule ^([^.]+)$ index.php
+AddDefaultCharset utf-8
+AddCharset utf-8 *
+php_value default_charset utf-8
+
+<IfModule mod_charset.c>
+    CharsetSourceEnc utf-8
+    CharsetDefault utf-8
+</IfModule>
+Options -Indexes
