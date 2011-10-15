@@ -17,7 +17,7 @@
  <input name="lang" type="hidden" value="<?=$lang;?>">
  <span><?=$lang_desc;?> <?=$lang;?></span><br /><hr /><br />
 
-  <?=$c_tags;?> <input style="margin-left:37px;" size="41" name="tags_tags" type="text" value="<?=substr($tags,1);?>"><br /><br />
+  <?=$c_tags;?> <input style="margin-left:30px;" size="41" name="tags_tags" type="text" value="<?=substr($tags,1);?>"><br /><br />
 
   <?=$c_gtitle;?> <input size="41" name="tags[<?=$idt;?>]" type="text" value="<?=$title;?>"><br /><br />
 

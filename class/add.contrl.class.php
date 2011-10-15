@@ -509,7 +509,7 @@ class add_contrl extends api {
 		$page = ceil(($total) / LIMIT_DB);
 		$data['link'] = "";
 		for ($i = 1; $i <= $page; $i++) {
-			if (is_int($i / 30))
+			if (is_int($i / 29))
 				$data['link'].="<br />";
 			if (empty($search))
 				if ($i == $pag_tmp) {

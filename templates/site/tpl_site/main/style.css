@@ -30,7 +30,7 @@ input {
 	background: #ffcb85 ;
 }
 #wrapper {
-	width: 1000px;
+	width: 950px;
 	margin: 0 auto;
 	min-height: 100%;
 	height: auto !important;
@@ -157,7 +157,7 @@ top: 100%;
 margin-top: -80px; /* = height + preferred bottom margin */
 
 /* ������ �� ������ */
-left: 80%;
+left: 23%;
 margin-left: -80px;
 
 

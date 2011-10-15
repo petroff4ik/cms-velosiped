@@ -9,7 +9,7 @@
  <?foreach($lang_arr as $key=>$value):?>
  <span><?=$lang_desc;?> <?=$value['alias'];?></span><br /><hr /><br />
 
-  <?=$c_tags;?> <input style="margin-left:37px;" size="41" name="tags_tags[<?=$value['name'];?>]" type="text" value=""><br /><br />
+  <?=$c_tags;?> <input style="margin-left:30px;" size="41" name="tags_tags[<?=$value['name'];?>]" type="text" value=""><br /><br />
 
   <?=$c_gtitle;?> <input size="41" name="tags_title[<?=$value['name'];?>]" type="text" value=""><br /><br />
 

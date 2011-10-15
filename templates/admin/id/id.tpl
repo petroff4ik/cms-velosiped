@@ -20,12 +20,12 @@
     </span>
 
     <div style="float:left;margin-left:10px;">
-        <form action="<?= $admin_dir_full; ?>id/<?= $idc; ?>/<?= $cur_lang; ?>/<?= $order; ?>/<?= $vector; ?>/<?= $pag; ?>/none/<?= $mod_order; ?>" method="post">
+        <form action="<?= $admin_dir_full; ?>id/<?= $idc; ?>/<?= $cur_lang; ?>/<?= $order; ?>/<?= $vector; ?>/1/none/<?= $mod_order; ?>" method="post">
             <input name="search" type="text" value=""> &nbsp; <input  type="submit" value="<?= $lang_search; ?>">
         </form>
     </div>
     <div style="float:left;margin-left: -10px;">
-        <form action="<?= $admin_dir_full; ?>id/<?= $idc; ?>/<?= $cur_lang; ?>/<?= $order; ?>/<?= $vector; ?>/<?= $pag; ?>/none/<?= $mod_order; ?>" method="post">
+        <form action="<?= $admin_dir_full; ?>id/<?= $idc; ?>/<?= $cur_lang; ?>/<?= $order; ?>/<?= $vector; ?>/1/none/<?= $mod_order; ?>" method="post">
             <input name="search" type="hidden" value=""> <input  type="submit" value="<?= $lang_search_clean; ?>">
         </form>
     </div>
@@ -125,7 +125,7 @@
 <br clear="all"/>
 <? if (isset($mod_orders) && !empty($mod_orders)): ?>
 	<span style="margin-left:10px;"><?= $lang_mod_order; ?></span>
-	<select size="1" name="modorder" onchange="langCh2(this,'<?= $idc; ?>','<?= $order; ?>','<?= $vector; ?>','<?= $pag; ?>','<?= urlencode($search); ?>','<?= $cur_lang; ?>');">>
+	<select size="1" name="modorder" onchange="langCh2(this,'<?= $idc; ?>','<?= $order; ?>','<?= $vector; ?>','1','<?= urlencode($search); ?>','<?= $cur_lang; ?>');">>
 		<? foreach ($mod_orders as $key => $value): ?>
 			<? if ($mod_order == $key): ?>
 				<option value="<?= $key; ?>"><?= $value; ?></option>
