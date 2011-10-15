@@ -55,7 +55,7 @@ class catalogp_model extends add_model_module {
 			$res+=$this->db->query("INSERT INTO id_lang_text SET text='" . mysql_real_escape_string(trim($value)) . "', id='" . $lastid . "' , lang='" . $key . "',date=NOW();");
 		}
 		$res+=$this->db->query("UPDATE  catalogp SET type='el',pid='" . $post['branch'] . "', id_doc='" . $ns_doc . "', price_alias='" . $lastid . "' WHERE idcp='" . $id_cat . "';");
-                $this->db->query("UPDATE ns_doc SET mod_order = '".(int)$id_cat."' WHERE id = ?",$ns_doc);
+                $this->db->query("UPDATE ns_doc SET mod_order = '".(int)$post['branch']."' WHERE id = ?",$ns_doc);
 		$this->db->query("COMMIT;");
 		return $res;
 	}
@@ -110,7 +110,7 @@ class catalogp_model extends add_model_module {
 	}
 
 	function get_all_branch_site($id_nstree) {
-		return $this->db->result_array($this->db->query("SELECT catalogp.*,id_lang_text.*,descr.text as descr, ns_doc.*,ns_doc.id as id_doc,addi.text as addi FROM catalogp, id_lang_text,ns_doc,id_lang_text as descr,id_lang_text as addi WHERE catalogp.type='br' AND name_alias=id_lang_text.id AND  id_lang_text.lang='" . $GLOBALS['lang'] . "' AND ns_doc.show_me=1 AND ns_doc.father_id='" . $id_nstree . "' AND ns_doc.id=catalogp.id_doc AND descr.id = catalogp.descr_alias AND descr.lang = id_lang_text.lang AND addi.id = catalogp.price_alias AND addi.lang = id_lang_text.lang ORDER BY pos;"));
+		return $this->db->result_array($this->db->query("SELECT catalogp.*,id_lang_text.*,descr.text as descr, ns_doc.*,ns_doc.id as id_doc,addi.text as addi FROM  id_lang_text,ns_doc,id_lang_text as descr,catalogp left join id_lang_text as addi ON addi.id = catalogp.price_alias AND addi.lang = '" . $GLOBALS['lang'] . "' WHERE catalogp.type='br' AND name_alias=id_lang_text.id AND id_lang_text.lang='" . $GLOBALS['lang'] . "' AND ns_doc.show_me=1 AND ns_doc.father_id='" . $id_nstree . "' AND ns_doc.id=catalogp.id_doc AND descr.id = catalogp.descr_alias AND descr.lang = id_lang_text.lang ORDER BY pos ;"));
 	}
 
 	function get_all_element_site($id_nstree) {
