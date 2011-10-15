@@ -399,7 +399,7 @@ CREATE TABLE IF NOT EXISTS `ns_doc` (
   `module` varchar(20) DEFAULT NULL,
   `side_for_doc` varchar(10) DEFAULT NULL,
   `children_id` int(11) NOT NULL,
-  `mod_order` varchar(4) NOT NULL,
+  `mod_order` varchar(10) NOT NULL,
   `mod_group` int(11) NOT NULL,
   `mod_options` int(11) NOT NULL,
   `sch` int(11) NOT NULL,
@@ -533,24 +533,6 @@ CREATE TABLE IF NOT EXISTS `side_site` (
 --
 
 INSERT INTO `side_site` (`side`, `free`, `id_template`, `ids`) VALUES
-('body', '1', 1, 1),
-('lang', '1', 1, 2),
-('menu', '1', 2, 3),
-('lang', '1', 2, 4),
-('menu', '1', 3, 5),
-('lang', '1', 3, 6),
-('menu', '1', 4, 7),
-('lang', '1', 4, 8),
-('title', '1', 1, 9),
-('title', '1', 4, 10),
-('body', '1', 4, 11),
-('meta_key', '1', 1, 12),
-('meta_descr', '1', 1, 13),
-('menu', '1', 1, 14),
-('meta_key', '1', 4, 16),
-('meta_descr', '1', 4, 17),
-('comment', '1', 4, 25),
-('comment_vi', '1', 4, 26),
 ('body', '1', 5, 28),
 ('lang', '1', 5, 29),
 ('menu', '1', 5, 30),
@@ -560,9 +542,7 @@ INSERT INTO `side_site` (`side`, `free`, `id_template`, `ids`) VALUES
 ('comment_vi', '1', 5, 34),
 ('comment', '1', 5, 35),
 ('slogan', '1', 5, 36),
-('slogan1', '1', 5, 37),
-('logo', '1', 1, 38),
-('mini_logo', '1', 4, 39);
+('slogan1', '1', 5, 37);
 
 -- --------------------------------------------------------
 
@@ -665,8 +645,6 @@ CREATE TABLE IF NOT EXISTS `templates` (
 --
 
 INSERT INTO `templates` (`id`, `path_file`, `name`, `show_me`, `path_small_img`, `name_project`) VALUES
-(1, 'templates/site/tpl_site/intro/intro.tpl', 'intro', '1', 'templates/site/tpl_site/intro/small_img/small_img.jpg', 'intro'),
-(4, 'templates/site/tpl_site/main/main.tpl', 'main', '0', 'templates/site/tpl_site/main/small_img/small_img.jpg', 'main'),
 (5, 'templates/site/tpl_site/default/default.tpl', 'default', '0', 'templates/site/tpl_site/default/small_img/small_img.jpg', 'default');
 
 -- --------------------------------------------------------
