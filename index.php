@@ -2,7 +2,7 @@
 
 /**
  * @author PetrOFF <andi-fm@ya.ru>
- * @version Look in the config
+ * @version Look in the config.
  * 
  * Load class,config etc.
  */
