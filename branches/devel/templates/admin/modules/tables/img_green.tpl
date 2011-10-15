@@ -1,1 +1,0 @@
-<img src="<?=$path;?>templates/images/green.jpg">
