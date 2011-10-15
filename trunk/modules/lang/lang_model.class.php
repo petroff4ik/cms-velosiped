@@ -48,7 +48,7 @@ class lang_model extends add_model_module {
 	}
 	
 	function insert_spec($trans,$lang,$id){
-		$this->db->query("INSERT INTO `id_lang_text` (`id`, `text`, `lang`, `date`) VALUES ({$id}, '{$trans}', '{$lang}', NOW());");	
+		$this->db->query("INSERT INTO `id_lang_text` (`id`, `text`, `lang`, `date`) VALUES ({$id}, '".mysql_real_escape_string(trim($trans))."', '{$lang}', NOW());");	
 	}
 
 }

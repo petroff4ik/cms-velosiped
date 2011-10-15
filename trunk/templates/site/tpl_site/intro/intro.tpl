@@ -6,6 +6,7 @@
 	<meta name="title" content="<?=$title;?>" />
 	<meta name="keywords" content="<?=$meta_key;?>" />
 	<meta name="description" content="<?=$meta_descr;?>" />
+        <link rel="icon" type="image/png" href="/pom.png" />
 	<link rel="stylesheet" href="/templates/site/tpl_site/intro/style.css" type="text/css" media="screen, projection" />
 	<!--[if lte IE 6]><link rel="stylesheet" href="/templates/site/tpl_site/intro/style_ie.css" type="text/css" media="screen, projection" /><![endif]-->
 </head>

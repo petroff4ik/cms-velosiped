@@ -169,10 +169,10 @@ class lang extends add_module {
 
 	function _curlToGoogle($data, $fromLanguage, $toLanguage) {
 		try {
-			$curl = @curl_init();
+			$curl = curl_init();
 			if (!$curl)
 				throw new Exception($this->lang['l_error_curl_initialise']);
-			curl_setopt($curl, CURLOPT_URL, "http://translate.google.com/translate_a/t?client=te&text=" . urlencode($data) . "&hl=ru&sl={$fromLanguage}&tl=i{$toLanguage}&multires=1&otf=1&ssel=0&tsel=0&uptl=ru&sc=1");
+			curl_setopt($curl, CURLOPT_URL, "http://translate.google.com/translate_a/t?client=te&text=" . urlencode($data) . "&hl=ru&sl={$fromLanguage}&tl={$toLanguage}&multires=1&otf=1&ssel=0&tsel=0&&sc=1");
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 			if (isset($_SERVER['HTTP_REFERER'])) {
 				curl_setopt($curl, CURLOPT_REFERER, $_SERVER['HTTP_REFERER']);
@@ -192,6 +192,7 @@ class lang extends add_module {
 	}
 
 	function _translate($langV="") {
+
 		set_time_limit(380);
 		$lang = $this->model->return_all_lang_array();
 		$all_field = $this->model->get_all_field();
@@ -230,9 +231,9 @@ class lang extends add_module {
 			elseif ($langV == $valueF['lang'])
 				$history = $valueF;
 		}
-		die("f");
-		//$this->set_message();
-		//$this->relink();
+		
+		$this->set_message("true");
+		$this->relink();
 	}
 
 }

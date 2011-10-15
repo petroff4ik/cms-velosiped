@@ -32,7 +32,7 @@ class catalogp_model extends add_model_module {
 
 	function insert_el($class, $ns_treeid, $post) {
 		$res = $this->db->query("START TRANSACTION;");
-		$this->db->query("INSERT INTO ns_doc SET date=NOW(),father_id='" . $ns_treeid . "',show_me=1,module='" . $class . "', side_for_doc='module',mod_order='cpe';");
+		$this->db->query("INSERT INTO ns_doc SET date=NOW(),father_id='" . $ns_treeid . "',show_me=1,module='" . $class . "', side_for_doc='module';");
 		$ns_doc = mysql_insert_id();
 
 		$lastid = $this->returnLastId("+");
@@ -55,6 +55,7 @@ class catalogp_model extends add_model_module {
 			$res+=$this->db->query("INSERT INTO id_lang_text SET text='" . mysql_real_escape_string(trim($value)) . "', id='" . $lastid . "' , lang='" . $key . "',date=NOW();");
 		}
 		$res+=$this->db->query("UPDATE  catalogp SET type='el',pid='" . $post['branch'] . "', id_doc='" . $ns_doc . "', price_alias='" . $lastid . "' WHERE idcp='" . $id_cat . "';");
+                $this->db->query("UPDATE ns_doc SET mod_order = '".(int)$id_cat."' WHERE id = ?",$ns_doc);
 		$this->db->query("COMMIT;");
 		return $res;
 	}
@@ -93,6 +94,7 @@ class catalogp_model extends add_model_module {
 			$res+=$this->db->query("UPDATE id_lang_text SET text='" . mysql_real_escape_string(trim($value)) . "', date=NOW() WHERE id='" . $key . "' AND lang='" . $post['lang'] . "'");
 		}
 		$res+=$this->db->query("UPDATE catalogp SET  pid='" . $post['branch'] . "', path='" . $post['path'] . "',file_name='" . $post['file_name'] . "' WHERE catalogp.idcp='" . $post['idcp'] . "'");
+                $this->db->query("UPDATE ns_doc SET mod_order = '".(int)$post['branch']."' WHERE id = ?",$id);
 		$this->db->query("COMMIT;");
 		return $res;
 	}
@@ -108,7 +110,7 @@ class catalogp_model extends add_model_module {
 	}
 
 	function get_all_branch_site($id_nstree) {
-		return $this->db->result_array($this->db->query("SELECT catalogp.*,id_lang_text.*,descr.text as descr, ns_doc.*,ns_doc.id as id_doc FROM catalogp, id_lang_text,ns_doc,id_lang_text as descr WHERE catalogp.type='br' AND name_alias=id_lang_text.id AND  id_lang_text.lang='" . $GLOBALS['lang'] . "' AND ns_doc.show_me=1 AND ns_doc.father_id='" . $id_nstree . "' AND ns_doc.id=catalogp.id_doc AND descr.id = catalogp.descr_alias AND descr.lang = '" . $GLOBALS['lang'] . "' ORDER BY pos;"));
+		return $this->db->result_array($this->db->query("SELECT catalogp.*,id_lang_text.*,descr.text as descr, ns_doc.*,ns_doc.id as id_doc,addi.text as addi FROM catalogp, id_lang_text,ns_doc,id_lang_text as descr,id_lang_text as addi WHERE catalogp.type='br' AND name_alias=id_lang_text.id AND  id_lang_text.lang='" . $GLOBALS['lang'] . "' AND ns_doc.show_me=1 AND ns_doc.father_id='" . $id_nstree . "' AND ns_doc.id=catalogp.id_doc AND descr.id = catalogp.descr_alias AND descr.lang = id_lang_text.lang AND addi.id = catalogp.price_alias AND addi.lang = id_lang_text.lang ORDER BY pos;"));
 	}
 
 	function get_all_element_site($id_nstree) {
@@ -166,10 +168,12 @@ class catalogp_model extends add_model_module {
 		$sql = "INSERT INTO catalogp ( type, name_alias, descr_alias, price_alias, pid, id_doc, pos, file_name, path) VALUES
 ( '{$type2}', {$arr['lang_id_name']}, {$arr['lang_id_descr']}, {$arr['lang_id_add']}, '{$pid}', {$ns_doc}, $pos,'' ,'' );";
 		$this->db->query($sql);
-		if($type == "b")
+		if($type == "b"){
 		$arr['parent_id'] = mysql_insert_id();
-		else 
-		$arr['parent_id'] = $pid;	
+                }else {
+		$arr['parent_id'] = $pid;
+                $this->db->query("UPDATE ns_doc SET mod_order = '".(int)$pid."' WHERE id = ?",$ns_doc);
+                }
 		$arr['pos'] = $pos;
 		return $arr;
 	}

@@ -138,10 +138,9 @@ class catalogp extends add_module {
 
 	function _retModOrder($id, $lang) {
 		$data['-doc-cpb'] = $this->lang['l_cpb'];
-		$data['-doc-cpe'] = $this->lang['l_cpe'];
 		$tmp = $this->model->get_all_branch($lang);
 		foreach ($tmp as $key => $value)
-			$data["-cp-" . $value['idcp']] = $value['text'];
+			$data["-doc-" . $value['idcp']] = $value['text'];
 		return $data;
 	}
 
@@ -346,7 +345,7 @@ class catalogp extends add_module {
 
 	// private
 
-	function _importCsv($file, $fromLanguage = "en", $toLanguage = "ru") {
+	function _importCsv() {
 		/*
 
 		  array
