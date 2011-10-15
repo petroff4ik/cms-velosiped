@@ -4,7 +4,7 @@
  * @author PetrOFF <andi-fm@ya.ru>
  * @version Look in the config
  * 
- * Load class,config etc
+ * Load class,config etc.
  */
 error_reporting(E_ALL & ~E_NOTICE);
 setlocale(LC_ALL, "UTF-8");
