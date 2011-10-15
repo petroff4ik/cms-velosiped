@@ -1,1 +1,0 @@
-<?=$space;?><img src='<?=$path;?>/templates/images/line.jpg'><a href='<?=$admin_dir_full;?>id/<?=$id;?>'  ><?=$text;?></a>

@@ -1,1 +1,0 @@
-<img src="<?=$path;?>templates/images/up.jpg" width="" height="" alt="" border="0">
