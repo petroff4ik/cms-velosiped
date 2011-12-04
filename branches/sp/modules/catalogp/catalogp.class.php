@@ -35,15 +35,31 @@ class catalogp extends add_module {
         }
         return $data;
     }
-
-    function show($sys) {
+    
+      function show($sys) {
         //$date['template']['path_file']="modules/news/template/news.tpl";
         $data['sys'] = $sys;
         $pages = $sys['ns_tree'];
         //menu end
         $side = $this->_call_out_func("tree_model", "returnSideForEvent", $this->class, $pages['template_out']);
         $data['branch'] = $this->model->get_all_branch_site($pages['id']);
-        $data['element'] = $this->model->get_all_element_site($pages['id']);
+        if (empty($data['branch']))
+            $this->show_404();
+        foreach ($side as $key => $value) {
+            $data[$value['side']] = $this->view->view("templates/site/tpl_module/catalogp/catalogp0.tpl", $data, true);
+        }
+        return $data;
+    }
+
+    function show_next($sys,$parent_id=0) {
+        //$date['template']['path_file']="modules/news/template/news.tpl";
+        $sys['idint'] = $parent_id;
+        $data['sys'] = $sys;
+        $pages = $sys['ns_tree'];
+        //menu end
+        $side = $this->_call_out_func("tree_model", "returnSideForEvent", $this->class, $pages['template_out']);
+        $data['branch'] = $this->model->get_all_branch_site($pages['id'],(int)$parent_id);
+        $data['element'] = $this->model->get_all_element_site($pages['id'],(int)$parent_id);
         if (empty($data['branch']) && empty($data['element']))
             $this->show_404();
         foreach ($side as $key => $value) {
@@ -462,6 +478,8 @@ class catalogp extends add_module {
 
 		die("Finish");
     }
+    
+    
 
 }
 

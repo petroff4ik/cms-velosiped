@@ -109,12 +109,12 @@ class catalogp_model extends add_model_module {
 		return $res;
 	}
 
-	function get_all_branch_site($id_nstree) {
-		return $this->db->result_array($this->db->query("SELECT catalogp.*,id_lang_text.*,descr.text as descr, ns_doc.*,ns_doc.id as id_doc,addi.text as addi FROM  id_lang_text,ns_doc,id_lang_text as descr,catalogp left join id_lang_text as addi ON addi.id = catalogp.price_alias AND addi.lang = '" . $GLOBALS['lang'] . "' WHERE catalogp.type='br' AND name_alias=id_lang_text.id AND id_lang_text.lang='" . $GLOBALS['lang'] . "' AND ns_doc.show_me=1 AND ns_doc.father_id='" . $id_nstree . "' AND ns_doc.id=catalogp.id_doc AND descr.id = catalogp.descr_alias AND descr.lang = id_lang_text.lang ORDER BY pos ;"));
+	function get_all_branch_site($id_nstree,$parent_id = 0) {
+		return $this->db->result_array($this->db->query("SELECT catalogp.*,id_lang_text.*,descr.text as descr, ns_doc.*,ns_doc.id as id_doc,addi.text as addi FROM  id_lang_text,ns_doc,id_lang_text as descr,catalogp left join id_lang_text as addi ON addi.id = catalogp.price_alias AND addi.lang = '" . $GLOBALS['lang'] . "' WHERE catalogp.type='br' AND name_alias=id_lang_text.id AND id_lang_text.lang='" . $GLOBALS['lang'] . "' AND ns_doc.show_me=1 AND ns_doc.father_id='" . $id_nstree . "' AND ns_doc.id=catalogp.id_doc AND descr.id = catalogp.descr_alias AND descr.lang = id_lang_text.lang AND catalogp.pid = ? ORDER BY pos ;",array($parent_id)));
 	}
 
-	function get_all_element_site($id_nstree) {
-		return $this->db->result_array($this->db->query("SELECT *,name_t.text as name,descr_t.text as descr,add_t.text as addi FROM catalogp, id_lang_text as name_t,id_lang_text as descr_t,id_lang_text as add_t,ns_doc WHERE catalogp.type='el' AND catalogp.name_alias=name_t.id AND catalogp.descr_alias=descr_t.id AND catalogp.price_alias=add_t.id AND name_t.lang='".$GLOBALS['lang']."' AND ns_doc.show_me=1 AND ns_doc.father_id='".(int)$id_nstree."' AND ns_doc.id=catalogp.id_doc AND name_t.lang = descr_t.lang AND add_t.lang = name_t.lang ORDER BY name_t.id;"));
+	function get_all_element_site($id_nstree,$parent_id = 0) {
+		return $this->db->result_array($this->db->query("SELECT *,name_t.text as name,descr_t.text as descr,add_t.text as addi FROM catalogp, id_lang_text as name_t,id_lang_text as descr_t,id_lang_text as add_t,ns_doc WHERE catalogp.type='el' AND catalogp.name_alias=name_t.id AND catalogp.descr_alias=descr_t.id AND catalogp.price_alias=add_t.id AND name_t.lang='".$GLOBALS['lang']."' AND ns_doc.show_me=1 AND ns_doc.father_id='".(int)$id_nstree."' AND ns_doc.id=catalogp.id_doc AND name_t.lang = descr_t.lang AND add_t.lang = name_t.lang AND catalogp.pid IN(SELECT idcp FROM catalogp WHERE pid = ?) ORDER BY name_t.id;",array($parent_id)));
 	}
 
 	function getPagesAbs($ns_doc) {
