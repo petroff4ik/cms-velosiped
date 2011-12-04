@@ -186,5 +186,21 @@ class catalogp_model extends add_model_module {
 		$sql = "INSERT INTO `id_lang_text` (`id`, `text`, `lang`, `date`) VALUES (" . $arr['lang_id_add'] . ", '" . mysql_real_escape_string(trim($add)) . "', '" . $lang . "', NOW());";
 		$this->db->query($sql);
 	}
+        
+        function get_xls(){
+            return $this->db->result_array($this->db->query("SELECT catalogp.idcp,name.text as name,descr.text as descr,price.text as price,name.lang 
+FROM ns_doc,catalogp,id_lang_text as name, id_lang_text as descr, id_lang_text as price where ns_doc.id = catalogp.id_doc and ns_doc.father_id = 3 and name.id =catalogp.name_alias and descr.id = catalogp.descr_alias and price.id = catalogp.price_alias and price.lang = name.lang and name.lang=descr.lang"));
+        }
+        
+        function updateSpec($cpid, $name, $descr, $price, $lang){
+            $catalogp = $this->db->row_array($this->db->query("SELECT * FROM catalogp WHERE idcp =?",array($cpid)));
+            $this->db->query("UPDATE id_lang_text SET text = ? WHERE id = ? AND lang = ?;",array($name,$catalogp['name_alias'],$lang));
+            $this->db->query("UPDATE id_lang_text SET text = ? WHERE id = ? AND lang = ?;",array($descr,$catalogp['descr_alias'],$lang));
+            return $this->db->query("UPDATE id_lang_text SET text = ? WHERE id = ? AND lang = ?;",array($price,$catalogp['price_alias'],$lang));
+        }
+        
+        function delSpec($cpid, $name, $descr, $price, $lang){
+            return $this->db->query("DELETE ns_doc,catalogp,id_lang_text FROM ns_doc,catalogp,id_lang_text WHERE catalogp.idcp = ? AND ns_doc.id = catalogp.id_doc AND (catalogp.name_alias = id_lang_text.id OR catalogp.descr_alias = id_lang_text.id OR catalogp.price_alias = id_lang_text.id)",array($cpid));
+        }
 
 }?>
