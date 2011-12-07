@@ -30,7 +30,7 @@
                         </td>
 
                         <td align="right" valign="top">
-                            <?= $valueE['addi']; ?>
+                            <i><?= $valueE['addi']; ?></i>
                         </td>
 
 
@@ -38,7 +38,7 @@
                     </tr>
 
                     <tr >
-                        <td  align="left" style="padding-bottom: 15px;"><?= $valueE['descr']; ?>
+                        <td  align="left" style="padding-bottom: 15px;"><i><?= $valueE['descr']; ?></i>
                         </td>
                         <td align="right" >
 

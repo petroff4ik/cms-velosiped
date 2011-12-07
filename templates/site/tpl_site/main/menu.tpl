@@ -12,14 +12,15 @@
     function(){
         $("#sub_menu").slideDown();
     })
-    $("#sub_menu").not("").live('mouseout',function(){
-        $("#sub_menu").slideUp();
+    $("#sub_menu").live('mouseleave',function(){
+        $(this).slideUp();
     })
 </script>
 <?
 $sub_menu = $this->_call_out_func("catalogp_model","get_all_branch_site",$id,0);
 ?>
-<div id="sub_menu" style="display:none;">
+<div id="sub_menu" style="display:none;width:200px;" >
+   
 <?foreach($sub_menu as $key=>$value):?>
 <?if($idint == $value['idcp']):?>
     <span style='margin-left:<?=$level+1;?>0px;display:block;color: #3A2514;font-family: Garamond;font-size: 28px;text-align: left;font-weight: bolder;'><?=$value['text'];?></span>
@@ -30,3 +31,5 @@ $sub_menu = $this->_call_out_func("catalogp_model","get_all_branch_site",$id,0);
 <?endforeach;?>
 </div>
 <? endif; ?>
+
+
