@@ -202,5 +202,6 @@ FROM ns_doc,catalogp,id_lang_text as name, id_lang_text as descr, id_lang_text a
         function delSpec($cpid, $name, $descr, $price, $lang){
             return $this->db->query("DELETE ns_doc,catalogp,id_lang_text FROM ns_doc,catalogp,id_lang_text WHERE catalogp.idcp = ? AND ns_doc.id = catalogp.id_doc AND (catalogp.name_alias = id_lang_text.id OR catalogp.descr_alias = id_lang_text.id OR catalogp.price_alias = id_lang_text.id)",array($cpid));
         }
+        
 
 }?>
