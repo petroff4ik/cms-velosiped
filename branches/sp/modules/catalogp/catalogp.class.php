@@ -480,7 +480,8 @@ class catalogp extends add_module {
     }
     
     
+    
 
-}
 
-?>
+
+}?>
