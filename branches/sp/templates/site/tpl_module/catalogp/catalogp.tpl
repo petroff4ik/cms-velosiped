@@ -21,7 +21,7 @@ function my_ucfirst($string, $e ='utf-8') {
 ?>
 <div align="center">
     <? foreach ($branch as $key => $value): ?>
-        <span class="cmenu" idn="<?= $key; ?>" style="float:left;margin:10px;font-size:14px;cursor:pointer;font-size:16px;"><b><?= my_ucfirst($value['text']); ?></b></span>
+        <span class="cmenu" idn="<?= $key; ?>" style="float:left;margin:10px;font-size:14px;cursor:pointer;font-size:16px;"><b><?= strip_tags(my_ucfirst($value['text'])); ?></b></span>
     <? endforeach; ?>
     <div class="clear"/>
 
@@ -36,12 +36,12 @@ function my_ucfirst($string, $e ='utf-8') {
                 <?endif;?>
         </tr>
             <tr>
-                <td align="center"> 
-                    
-                    <br /><br />
-                    <span id="n<?= $key; ?>" style="margin:10px;font-size:23px;"><b><?= mb_strtoupper($value['text'], "UTF-8"); ?></b></span> <br /><br />
+                <td align="left" > 
+                    <br/><br/>
+                    <span id="n<?= $key; ?>" style="font-size:23px;"><b><?= mb_strtoupper($value['text'], "UTF-8"); ?></b></span> <br /><br />
                 </td>
                 <td align="right" >
+                    <br/><br/>
                     <b><?= mb_strtolower($value['descr'], "UTF-8"); ?></b>
                 </td>
             </tr>
@@ -52,8 +52,8 @@ function my_ucfirst($string, $e ='utf-8') {
                             <b style="font-size:16px;"><?= $valueE['name']; ?></b>
                         </td>
 
-                        <td align="right" valign="top" width="100">
-                            <i style="font-size:14px;"><?= $valueE['addi']; ?></i>
+                        <td style="font-size:14px;" align="right" valign="top" width="240">
+                           <?= $valueE['addi']; ?>
                         </td>
 
 
