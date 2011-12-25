@@ -59,7 +59,7 @@ class news_model extends add_model_module {
     }
 
     function get_all_news_title($ns_tree, $pag) {
-        return $this->db->result_array($this->db->query("SELECT SQL_CALC_FOUND_ROWS *,id_lang_text.id as idl,news.id as idn FROM ns_doc,id_lang_text,news WHERE ns_doc.father_id='" . $this->security($ns_tree) . "' AND  ns_doc.id=news.id_doc AND id_lang_text.id=news.title  AND id_lang_text.lang='" . $GLOBALS['lang'] . "' AND ns_doc.show_me=1 LIMIT " . $this->security($pag) . ",10;"));
+        return $this->db->result_array($this->db->query("SELECT SQL_CALC_FOUND_ROWS *,id_lang_text.id as idl,news.id as idn FROM ns_doc,id_lang_text,news WHERE ns_doc.father_id='" . $this->security($ns_tree) . "' AND  ns_doc.id=news.id_doc AND id_lang_text.id=news.title  AND id_lang_text.lang='" . $GLOBALS['lang'] . "' AND ns_doc.show_me=1 ORDER BY id DESC LIMIT " . $this->security($pag) . ",10 ;"));
     }
 
     function get_all_news_shortdescr($ns_tree, $pag) {
