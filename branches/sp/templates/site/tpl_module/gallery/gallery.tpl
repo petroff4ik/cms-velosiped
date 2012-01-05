@@ -17,6 +17,7 @@
 $(".img_icon").live("click",function(ob){
 	var date = "/<?= $GLOBALS['lang']; ?>/gallery/open?&path="+$(this).attr("path")+"&cat="+$(this).attr("cat")+"&file_name="+$(this).attr("file_name");
 	$("#load").show();
+	$("#orgin").attr("file_name",$(this).attr("file_name"));
 	$("#cur_img img").attr('src',date);
 	description = $(this).attr("alt");
 	if(description == "img")
