@@ -336,7 +336,8 @@ class gallery extends add_module {
 		if (empty($file_name))
 			$path = "templates/images/blank.jpg";
 		header("Content-type: image/gif");
-		readfile(SITE_DIR . $path);
+		die(readfile(SITE_DIR . $path));
+		
 	}
 
 	function _creatorMenu($arr) {
