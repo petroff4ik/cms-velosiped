@@ -53,6 +53,7 @@ class lang extends add_module {
 			} else {
 				header("location:" . SITE_URL);
 			}
+			die();
 		}
 	}
 
