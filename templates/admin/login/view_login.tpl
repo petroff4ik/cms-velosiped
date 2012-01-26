@@ -33,11 +33,16 @@ border:1px solid;
        <div align="center" style="color:#FF0000;height:20px;"><?=$error;?></div>
 
        <form action="<?=$admin_dir_full;?>" method="post">
+		   
        <table border="0" align="center">
+		   
        <tr>
-       <td>
+       <td width="100" align="left">
        <?=$d_lang;?>:
-       <select style="margin-left:57px;" size="1" name="lang">
+	   </td>
+		   
+		<td>
+       <select size="1" name="lang">
        <?
          $arr=explode(",",ADMIN_ARR_LANGS);
        foreach($arr as $key=>$value):?>
@@ -46,27 +51,36 @@ border:1px solid;
 		</select>
        </td>
        </tr>
+		   
         <tr>
-        <td>
-       <?=$login;?>: <input name="login" value="" maxlength="10" size="10" type="text">
+        <td align="left">
+       <?=$login;?>: 
+	   </td>
+		<td>
+	   <input name="login" value="" maxlength="10" size="10" type="text"/>
        </td>
         </tr>
+		   
          <tr>
-       <td>
-       <?=$password;?>: <input style="margin-left:43px;" name="pass" value=""  maxlength="10" size="10" type="password">
+       <td align="left">
+       <?=$password;?>: 
+	   </td>
+		<td>
+	   <input  name="pass" value=""  maxlength="10" size="10" type="password"/>
        </td>
      </tr>
       <tr>
       <td colspan="2" align="center">
-<input name="submin" value="<?=$enter;?>" type="submit">
+		<input name="submin" value="<?=$enter;?>" type="submit"/>
      </td>
      </tr>
-  <table>
+  </table>
+		   
    </form>
                </div>
 <b class='e'><span></span><u></u><i></i><b></b></b>
 </div>
 </div>
-</div>
+
 </body>
 </html>
