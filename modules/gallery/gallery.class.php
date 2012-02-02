@@ -205,7 +205,7 @@ class gallery extends add_module {
 	  $quality         - качество генерируемого JPEG, по умолчанию - максимальное (100)
 	 * ********************************************************************************* */
 
-	function _img_resize($src, $dest, $width, $height, $rgb=0xFFFFFF, $quality=100) {
+	function _img_resize($src, $dest, $width, $height, $rgb=0xFFCB85, $quality=100) {
 		if (!file_exists($src))
 			return false;
 
