@@ -7,7 +7,7 @@
 	<img file_name="<?= @$img[0]['file_name']; ?>" path="orgin" cat="<?= @$img[0]['father_id']; ?>" style="cursor:pointer;" id="orgin" onload="$('#load').hide();" src="/<?= $GLOBALS['lang']; ?>/gallery/open?file_name=<?= (!empty($img[0]['path']) && !empty($img[0]['file_name'])) ?  $img[0]['file_name'] : ""; ?>&path=large&cat=<?=$img[0]['father_id'];?>" border="0" />
 	
 </div>
-<div align="left">
+<div align="center">
 <? foreach ($img as $key => $value): ?>
 	<img style="cursor:pointer;" class="img_icon" width="100" height="100" file_name="<?= $value['file_name']; ?>" path="large" cat="<?= $value['father_id']; ?>" src="/<?= $GLOBALS['lang']; ?>/gallery/open?file_name=<?= $value['file_name']; ?>&path=thumb&cat=<?= $value['father_id']; ?>" alt="<? echo $value['show_description']?$value['text']:"img";?>"/>
 	<?if(is_int(($key--)/4) && key>0):?><br/><?endif;?>

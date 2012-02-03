@@ -10,9 +10,9 @@ class tree extends add_module {
         return $this->model->get_info_ns_tree($id);
     }
 
-    function _start_schedule($ns_tree) {
+    function _start_schedule($ns_tree,$shd, $url, $id_sch,$idint=0) {
         if ($ns_tree['class'] != $this->class) 
-        return $this->return_menu($ns_tree['idnt'], "", $ns_tree['namet']);
+        return $this->return_menu($ns_tree['idnt'], "", $ns_tree['namet'],$idint);
     }
 
     function start($sys) {
@@ -122,11 +122,12 @@ class tree extends add_module {
         return $ret;
     }
 
-    function return_menu($p_id, $side="", $templates="") {
+    function return_menu($p_id, $side="", $templates="",$idint=0) {
         $ret = array();
         $tmpC = array();
         $tmp = $this->model->return_menu($p_id, $side, $GLOBALS['lang']); //only numeric
         $data['ppid'] = $p_id;
+        $data['idint'] = $idint;
         foreach ($tmp as $key => $value) {
             $data['name'] = $value['text'];
 

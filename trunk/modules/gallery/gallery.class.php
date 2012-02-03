@@ -164,7 +164,7 @@ class gallery extends add_module {
 			}
 		} elseif (empty($_FILES[$fileElementName]['tmp_name']) || $_FILES[$fileElementName]['tmp_name'] == 'none') {
 			$error = 'No file was uploaded..';
-		} elseif (empty($ext) || ($ext != "png" && $ext != "jpg" && $ext != "gif" && $ext != "jpeg")) {
+		} elseif (empty($ext) || ($ext != "png" && $ext != "jpg" && $ext != "gif" && $ext != "jpeg" && $ext != "PNG" && $ext != "JPG" && $ext != "GIF" && $ext != "JPEG")) {
 			$error = "Not image type -> " . $ext;
 		} else {
 			if (!is_dir($path . $_POST['id'])) {
@@ -382,7 +382,12 @@ class gallery extends add_module {
 				die(json_encode(array("msg" => $this->view->view("templates/admin_modules/gallery/list.tpl", $data, true))));
 			else
 				return $this->view->view("templates/admin_modules/gallery/list.tpl", $data, true);
-		}
+		}else{
+                    if ($this->isAjax())
+				die(json_encode(array("msg" => "Catalog empty")));
+			else
+				return "Catalog empty";
+                }
 	}
 	
 	function _getPrototypePages($ns_doc="", $class="") {
