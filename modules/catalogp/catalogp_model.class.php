@@ -109,12 +109,12 @@ class catalogp_model extends add_model_module {
 		return $res;
 	}
 
-	function get_all_branch_site($id_nstree) {
-		return $this->db->result_array($this->db->query("SELECT catalogp.*,id_lang_text.*,descr.text as descr, ns_doc.*,ns_doc.id as id_doc,addi.text as addi FROM  id_lang_text,ns_doc,id_lang_text as descr,catalogp left join id_lang_text as addi ON addi.id = catalogp.price_alias AND addi.lang = '" . $GLOBALS['lang'] . "' WHERE catalogp.type='br' AND name_alias=id_lang_text.id AND id_lang_text.lang='" . $GLOBALS['lang'] . "' AND ns_doc.show_me=1 AND ns_doc.father_id='" . $id_nstree . "' AND ns_doc.id=catalogp.id_doc AND descr.id = catalogp.descr_alias AND descr.lang = id_lang_text.lang ORDER BY pos ;"));
+	function get_all_branch_site($id_nstree,$parent_id = 0) {
+		return $this->db->result_array($this->db->query("SELECT catalogp.*,id_lang_text.*,descr.text as descr, ns_doc.*,ns_doc.id as id_doc,addi.text as addi FROM  id_lang_text,ns_doc,id_lang_text as descr,catalogp left join id_lang_text as addi ON addi.id = catalogp.price_alias AND addi.lang = '" . $GLOBALS['lang'] . "' WHERE catalogp.type='br' AND name_alias=id_lang_text.id AND id_lang_text.lang='" . $GLOBALS['lang'] . "' AND ns_doc.show_me=1 AND ns_doc.father_id='" . $id_nstree . "' AND ns_doc.id=catalogp.id_doc AND descr.id = catalogp.descr_alias AND descr.lang = id_lang_text.lang AND catalogp.pid = ? ORDER BY pos ;",array($parent_id)));
 	}
 
-	function get_all_element_site($id_nstree) {
-		return $this->db->result_array($this->db->query("SELECT *,name_t.text as name,descr_t.text as descr,add_t.text as addi FROM catalogp, id_lang_text as name_t,id_lang_text as descr_t,id_lang_text as add_t,ns_doc WHERE catalogp.type='el' AND catalogp.name_alias=name_t.id AND catalogp.descr_alias=descr_t.id AND catalogp.price_alias=add_t.id AND name_t.lang='".$GLOBALS['lang']."' AND ns_doc.show_me=1 AND ns_doc.father_id='".(int)$id_nstree."' AND ns_doc.id=catalogp.id_doc AND name_t.lang = descr_t.lang AND add_t.lang = name_t.lang ORDER BY name_t.id;"));
+	function get_all_element_site($id_nstree,$parent_id = 0) {
+		return $this->db->result_array($this->db->query("SELECT *,name_t.text as name,descr_t.text as descr,add_t.text as addi FROM catalogp, id_lang_text as name_t,id_lang_text as descr_t,id_lang_text as add_t,ns_doc WHERE catalogp.type='el' AND catalogp.name_alias=name_t.id AND catalogp.descr_alias=descr_t.id AND catalogp.price_alias=add_t.id AND name_t.lang='".$GLOBALS['lang']."' AND ns_doc.show_me=1 AND ns_doc.father_id='".(int)$id_nstree."' AND ns_doc.id=catalogp.id_doc AND name_t.lang = descr_t.lang AND add_t.lang = name_t.lang AND catalogp.pid IN(SELECT idcp FROM catalogp WHERE pid = ?) ORDER BY name_t.id;",array($parent_id)));
 	}
 
 	function getPagesAbs($ns_doc) {
@@ -186,5 +186,22 @@ class catalogp_model extends add_model_module {
 		$sql = "INSERT INTO `id_lang_text` (`id`, `text`, `lang`, `date`) VALUES (" . $arr['lang_id_add'] . ", '" . mysql_real_escape_string(trim($add)) . "', '" . $lang . "', NOW());";
 		$this->db->query($sql);
 	}
+        
+        function get_xls(){
+            return $this->db->result_array($this->db->query("SELECT catalogp.idcp,name.text as name,descr.text as descr,price.text as price,name.lang 
+FROM ns_doc,catalogp,id_lang_text as name, id_lang_text as descr, id_lang_text as price where ns_doc.id = catalogp.id_doc and ns_doc.father_id = 3 and name.id =catalogp.name_alias and descr.id = catalogp.descr_alias and price.id = catalogp.price_alias and price.lang = name.lang and name.lang=descr.lang"));
+        }
+        
+        function updateSpec($cpid, $name, $descr, $price, $lang){
+            $catalogp = $this->db->row_array($this->db->query("SELECT * FROM catalogp WHERE idcp =?",array($cpid)));
+            $this->db->query("UPDATE id_lang_text SET text = ? WHERE id = ? AND lang = ?;",array($name,$catalogp['name_alias'],$lang));
+            $this->db->query("UPDATE id_lang_text SET text = ? WHERE id = ? AND lang = ?;",array($descr,$catalogp['descr_alias'],$lang));
+            return $this->db->query("UPDATE id_lang_text SET text = ? WHERE id = ? AND lang = ?;",array($price,$catalogp['price_alias'],$lang));
+        }
+        
+        function delSpec($cpid, $name, $descr, $price, $lang){
+            return $this->db->query("DELETE ns_doc,catalogp,id_lang_text FROM ns_doc,catalogp,id_lang_text WHERE catalogp.idcp = ? AND ns_doc.id = catalogp.id_doc AND (catalogp.name_alias = id_lang_text.id OR catalogp.descr_alias = id_lang_text.id OR catalogp.price_alias = id_lang_text.id)",array($cpid));
+        }
+        
 
 }?>
