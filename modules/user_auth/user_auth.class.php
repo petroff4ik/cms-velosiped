@@ -147,6 +147,7 @@ class user_auth extends add_module {
 		unset($_SESSION['user']);
 		setcookie(session_name(), "");
 		header("location: /");
+		die();
 	}
 
 	protected function default_user() {

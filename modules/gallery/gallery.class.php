@@ -205,7 +205,7 @@ class gallery extends add_module {
 	  $quality         - качество генерируемого JPEG, по умолчанию - максимальное (100)
 	 * ********************************************************************************* */
 
-	function _img_resize($src, $dest, $width, $height, $rgb=0xFFFFFF, $quality=100) {
+	function _img_resize($src, $dest, $width, $height, $rgb=0xFFCB85, $quality=100) {
 		if (!file_exists($src))
 			return false;
 
@@ -336,7 +336,8 @@ class gallery extends add_module {
 		if (empty($file_name))
 			$path = "templates/images/blank.jpg";
 		header("Content-type: image/gif");
-		readfile(SITE_DIR . $path);
+		die(readfile(SITE_DIR . $path));
+		
 	}
 
 	function _creatorMenu($arr) {
